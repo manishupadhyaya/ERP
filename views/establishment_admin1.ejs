@@ -1,0 +1,27 @@
+<h1 class="mt-4">ESTABLISHMENT Admin Section</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<h2>Send list to the director</h2>
+<form method="post" action="/admins/establishmentAdmin">
+    <h3>List of eligible candidates</h3>
+<% docs.forEach((doc) => { %>
+    <% if(doc.eligibility) { %>
+        <h3><%= doc.userID %></h3>
+        <a href="/admins/<%= doc._id %>">view</a><br>
+    <% } %>
+<% }) %>
+<br>
+<br>
+<h3>List of rejected candidates</h3>
+<% docs.forEach((doc) => { %>
+    <% if(!doc.eligibility) { %>
+        <h3><%= doc.userID %></h3>
+        <a href="/admins/<%= doc._id %>">view</a><br>
+
+    <% } %>
+<% }) %>
+
+<br><br>
+<p>Send list to the director sir</p>
+    <button type="submit">Send</button>
+</form>
+<a href="/admins/logout" class="btn btn-secondary">Logout</a>

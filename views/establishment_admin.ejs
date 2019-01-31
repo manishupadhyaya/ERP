@@ -1,0 +1,11 @@
+<h1 class="mt-4">ESTABLISHMENT Admin Section</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<h2>Mail call letter</h2>
+<form method="post" action="/admins/establishmentAdmin/sendMail">
+<% docs.forEach((doc) => { %>
+    <input type="checkbox" name="<%= doc.userID %>" value="true" />
+    <h3><%= doc.userID %></h3>
+    <% }) %>
+    <button type="submit">Submit</button>
+</form>
+<a href="/admins/logout" class="btn btn-secondary">Logout</a>

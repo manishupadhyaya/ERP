@@ -1,0 +1,511 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form action="/dashboard" method="POST" enctype="multipart/form-data">
+      <input type="text" name="property">
+      <input type="file" name="file" id="file">
+      <button type="submit">
+            Submit
+      </button>
+
+    </form>
+  </body>
+</html> -->
+<html>
+
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="../public/images/nitbanner.png" alt="NITS" height="200vh" width="1600vw">
+    </div>
+    <center> <span class="subhead">
+            Registraion Portal
+        </span></center>
+    <p class="lead mb-3">Welcome
+        <%= user.name %>
+    </p>
+    <center><span class="warning">**Please do check your data properly before submitting**</span></center>
+
+    <form action="/dashboard" method="POST" enctype="multipart/form-data">
+
+        <div class="main" id="page-1">
+            ADVERTISEMENT NO. AND DATE:
+            <input type="text" name="advNo" style="margin-left: 100px;" />
+            <br><br><br>
+
+
+            <fieldset>
+                <legend>TRANSACTION DETAILS</legend><br><br>
+                TRANSACTION ID
+                <input type="text" name="transactionId" value="" style="margin-left: 205px;"><br><br>
+                BANK NAME
+                <input type="text" name="bankName" value="" style="margin-left: 246px;"><br><br>
+                BRANCH NAME
+                <input type="text" name="branchName" style="margin-left: 222px;"><br><br>
+                AMOUNT
+                <input type="number" name="amount" style="margin-left: 270px;"><br><br>
+            </fieldset>
+            <br><br>
+            <a href="/form-2"><button id="next1">NEXT</button></a>
+
+        </div>
+
+
+
+        <div class="page2" id="page-2">
+            POST APPLIED FOR
+            <select name="postApplied" style="width: 172px; margin-left: 190px;">
+                <option value="">job1</option>
+                <option value="">job2</option>
+            </select>
+            <br><br><br>
+
+
+            <fieldset>
+                <legend>PERSONAL DETAILS</legend><br><br>
+                Name of Applicant
+                <input type="" name="name" value="" style="margin-left: 195px;"><br><br>
+                Mother's Name
+                <input type="text" name="motherName" value="" style="margin-left: 218px;"><br><br>
+                Father's Name
+                <input type="" name="fatherName" style="margin-left: 221px;"><br><br><br>
+                <fieldset>
+                    <legend>Residential Address</legend><br><br>
+                    H. No
+                    <input type="" name="houseNoResidential" style="margin-left: 265px;"><br><br>
+                    Street
+                    <input type="" name="streetResidential" style="margin-left: 263px;"><br><br>
+                    <input type="" name="streetResidential1" style="margin-left: 310px;"><br><br>
+                    City
+                    <input name="cityResidential" style="width: 172px;margin-left: 278px;">
+                    </input><br><br>
+                    District
+                    <input name="districtResidential" style="width: 172px;margin-left: 257px;">
+                    </input><br><br>
+                    State
+                    <select name="stateResidential" style="width: 172px;margin-left: 268px;">
+                        <option value="">job1</option>
+                        <option value="">job2</option>
+                    </select><br><br>
+                    Country
+                    <input name="countryResidential" style="width: 172px;margin-left: 247px;">
+
+                    </input><br><br>
+                    Pin Code
+                    <input type="" name="pincodeResidential" style="margin-left: 237px;"><br><br>
+                </fieldset>
+                <br><br>
+                <fieldset>
+                    <legend>Permanent Address</legend><br><br>
+                    H. No
+                    <input type="" name="houseNoPermanent" style="margin-left: 260px;"><br><br>
+                    Street
+                    <input type="" name="streetPermanent" style="margin-left: 258px;"><br><br>
+                    <input type="" name="streetPermanent1" style="margin-left: 305px;"><br><br>
+                    City
+                    <input name="cityPermanent" style="width: 172px;margin-left: 273px;">
+
+                    </input><br><br>
+
+                    District
+                    <input name="districtPermanent" style="width: 172px;margin-left: 251px;">
+
+                    </input><br><br>
+                    State
+                    <select name="statePermanent" style="width: 172px;margin-left: 263px;">
+                        <option value="">job1</option>
+                        <option value="">job2</option>
+                    </select><br><br>
+                    Country
+                    <input name="countryPermanent" style="width: 172px;margin-left: 243px;">
+
+                    </input><br><br>
+                    Pin Code
+                    <input type="" name="pincodePermanent" style="margin-left: 233px;"><br><br>
+                </fieldset>
+                <br><br>
+                Email ID:
+                <input type="email" name="email" style="margin-left: 251px;"><br><br>
+                Mobile No.
+                <input type="number" name="number" style="margin-left: 240px;"><br><br>
+                Gender
+                <input type="radio" name="gender" value="male" style="margin-left: 263px;" checked> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other<br><br>
+                Date Of Birth
+                <input type="date" name="DOB" style="margin-left: 223px; width: 172px;"><br><br>
+                Age as on (30/11/2017)
+                <input type="text" name="age" style="margin-left: 148px;"><br><br>
+                Marital Status:
+                <input type="checkbox" name="maritalStatus" value="" style="margin-left: 212px;"> Married
+                <input type="checkbox" name="maritalStatus" value=""> Unmarried<br><br>
+
+                Category:
+                <input type="radio" name="category" value="" style="margin-left: 243px;"> SC
+                <input type="radio" name="category" value=""> ST
+                <input type="radio" name="category" value=""> OBC
+                <input type="radio" name="category" value=""> GEN
+                <br><br>
+                Whether Belongs to PWD
+                <input type="radio" name="pwd" value="" style="margin-left: 128px;"> Yes
+                <input type="radio" name="pwd" value=""> No<br><br>
+                % of Disability
+                <input type="text" name="disability" value="" style="margin-left: 210px;">
+
+            </fieldset>
+            <br><br>
+
+            <button id="prev1">PREV</button>
+            <button id="next2">NEXT</button>
+
+        </div>
+
+        <div id="page3">
+
+            <fieldset><br>
+                <legend>EDUCATIONAL QUALIFICATION</legend>
+                <table class="EDUCATION">
+                    <tr>
+                        <td align="center" name="Sl"><b>Sl.No.</b></td>
+                        <td align="center" name="degree"><b>Degree</b></td>
+                        <td align="center" name="nob"><b>Name of Board/ University</b></td>
+                        <td align="center" name="br"><b>Branch / Specialization</b></td>
+                        <td align="center" name="yoc"><b>Year of completion</b></td>
+                        <td align="center" name="div"><b>Div. / Class</b></td>
+                        <td align="center" name="percentage"><b>%age of marks</b></td>
+                        <td align="center" name="cgpa"><b>CGPA /CPI</b></td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Class X</td>
+                        <td><input type="text" name="Xboard" maxlength="30" /></td>
+                        <td><input type="text" name="Xbranch" maxlength="30" /></td>
+                        <td><input type="text" name="Xyear" maxlength="30" /></td>
+                        <td><input type="text" name="Xdivision" maxlength="30" /></td>
+                        <td><input type="text" name="Xpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="Xcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Class XII</td>
+                        <td><input type="text" name="XIIboard" maxlength="30" /></td>
+                        <td><input type="text" name="XIIbranch" maxlength="30" /></td>
+                        <td><input type="text" name="XIIyear" maxlength="30" /></td>
+                        <td><input type="text" name="XIIdivision" maxlength="30" /></td>
+                        <td><input type="text" name="XIIpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="XIIcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Diploma</td>
+                        <td><input type="text" name="dboard" maxlength="30" /></td>
+                        <td><input type="text" name="dbranch" maxlength="30" /></td>
+                        <td><input type="text" name="dyear" maxlength="30" /></td>
+                        <td><input type="text" name="ddivision" maxlength="30" /></td>
+                        <td><input type="text" name="dpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="dcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Graduation</td>
+                        <td><input type="text" name="gboard" maxlength="30" /></td>
+                        <td><input type="text" name="gbranch" maxlength="30" /></td>
+                        <td><input type="text" name="gyear" maxlength="30" /></td>
+                        <td><input type="text" name="gdivision" maxlength="30" /></td>
+                        <td><input type="text" name="gpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="gcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Post Graduation</td>
+                        <td><input type="text" name="pgboard" maxlength="30" /></td>
+                        <td><input type="text" name="pgbranch" maxlength="30" /></td>
+                        <td><input type="text" name="pgyear" maxlength="30" /></td>
+                        <td><input type="text" name="pgdivision" maxlength="30" /></td>
+                        <td><input type="text" name="pgpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="pgcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>Ph.D.</td>
+                        <td><input type="text" name="phdboard" maxlength="30" /></td>
+                        <td><input type="text" name="phdbranch" maxlength="30" /></td>
+                        <td><input type="text" name="phdyear" maxlength="30" /></td>
+                        <td><input type="text" name="phddivision" maxlength="30" /></td>
+                        <td><input type="text" name="phdpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="phdcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>Others</td>
+                        <td><input type="text" name="oboard" maxlength="30" /></td>
+                        <td><input type="text" name="obranch" maxlength="30" /></td>
+                        <td><input type="text" name="oyear" maxlength="30" /></td>
+                        <td><input type="text" name="odivision" maxlength="30" /></td>
+                        <td><input type="text" name="opercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="ocgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>8</td>
+                        <td>Title of Ph.D. Thesis</td>
+                        <td><input type="text" name="tophdboard" maxlength="30" /></td>
+                        <td><input type="text" name="topjdbranch" maxlength="30" /></td>
+                        <td><input type="text" name="tophdyear" maxlength="30" /></td>
+                        <td><input type="text" name="tophddivision" maxlength="30" /></td>
+                        <td><input type="text" name="tophdpercentage" maxlength="30" style="width: 100px" /></td>
+                        <td><input type="text" name="tophdcgpa" maxlength="30" style="width: 100px" /></td>
+                    </tr>
+
+
+                </table>
+
+                </td>
+                </tr>
+                </table>
+                <br>
+            </fieldset>
+
+            <br><br>
+
+
+            <fieldset><br>
+                <legend>EXPERIENCE</legend>
+                <table class="experience">
+                    <tr>
+                        <td align="center" rowspan="2"><b>Sl.No.</b></td>
+                        <td align="center" rowspan="2" style="width: 100px"><b>Organisation</b></td>
+                        <td align="center" rowspan="2"><b>Designation</b></td>
+                        <td align="center" colspan="2"><b>Period(Date)</b></td>
+                        <td align="center" colspan="2"><b>Duration</b></td>
+                        <td align="center" rowspan="2"><b>Pay Scale</b></td>
+                        <td align="center" rowspan="2"><b>Reason for Leaving <br>(Annexure reference)</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">From</td>
+                        <td style="text-align: center;">To</td>
+                        <td style="text-align: center;">Year</td>
+                        <td style="text-align: center;">Month</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" name="exorganization1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale1" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason1" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td><input type="text" name="exorganization2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale2" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason2" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td><input type="text" name="exorganization3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale3" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason3" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td><input type="text" name="exorganization4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale4" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason4" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td><input type="text" name="exorganization5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale5" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason5" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td><input type="text" name="exorganization6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exdesignation6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exfrom6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="exto6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="duryear6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="durmonth6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="payScale6" maxlength="30" style="width: 100px;" /></td>
+                        <td><input type="text" name="reason6" maxlength="30" style="width: 300px;" /></td>
+                    </tr>
+
+                    <tr>
+                    </tr>
+
+
+                </table>
+
+                </td>
+                </tr>
+                </table>
+            </fieldset>
+            <br><br>
+            <button id="prev2" style="">PREV</button>
+            <button id="Submit">NEXT</button>
+            <!-- <a href="/users/logout" class="btn btn-secondary">Logout</a> -->
+        </div>
+
+
+
+
+        <div class="main">
+            <fieldset>
+                <legend>UPLOAD DETAILS</legend><br><br>
+                PHOTOGRAPH
+                <input type="file" name="file" style="margin-left: 300px;"><br><br><br>
+                SIGNATURE
+                <input type="file" name="signature" style="margin-left: 320px;"><br><br><br>
+                CASTE CERTIFICATE
+                <input type="file" name="casteC" style="margin-left: 250px;"><br><br><br>
+                AGE PROOF(if any)
+                <input type="file" name="ageC" style="margin-left: 266px;"><br><br><br>
+                X MARKSHEET
+                <input type="file" name="XMarksheet" style="margin-left: 295px;"><br><br>
+                X CERTIFICATE
+                <input type="file" name="XCertificate" style="margin-left: 291px;"><br><br><br>
+                XII MARKSHEET
+                <input type="file" name="XIIMarksheet" style="margin-left: 285px;"><br><br>
+                XII CERTIFICATE
+                <input type="file" name="XIICertificate" style="margin-left: 283px;"><br><br><br>
+                DIPLOMA MARKSHEET
+                <input type="file" name="diplomaMarksheet" style="margin-left: 233px;"><br><br>
+                DIPLOMA CERTIFICATE
+                <input type="file" name="diplomaCertificate" style="margin-left: 230px;"><br><br><br>
+                GRADUATION MARKSHEET
+                <input type="file" name="gradMarksheet" style="margin-left: 199px;"><br><br>
+                GRADUATION CERTIFICATE
+                <input type="file" name="gradCertificate" style="margin-left: 195px;"><br><br><br>
+                POST GRADUATION CERTIFICATE
+                <input type="file" name="postGradMarksheet" style="margin-left: 147px;"><br><br>
+                POST GRADUATION MARKSHEET
+                <input type="file" name="postGradCertificate" style="margin-left: 150px;"><br><br><br>
+                Ph.D CERTIFICATE
+                <input type="file" name="phdMarksheet" style="margin-left: 263px;"><br><br>
+                Ph.D MARKSHEET
+                <input type="file" name="phdCertificate" style="margin-left: 265px;"><br><br><br> -->
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <legend>LIST OF ANNEXURES ENCLOSED</legend>
+                <table class="experience">
+                    <tr>
+                        <td align="center"><b>Sl.No.</b></td>
+                        <td align="center" style="width: 150px"><b>Annexure No.</b></td>
+                        <td align="center" style="width: 500px"><b>Details</b></td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" name="annexure1" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail1" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td><input type="text" name="annexure2" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail2" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td><input type="text" name="annexure3" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail3" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td><input type="text" name="annexure4" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail4" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td><input type="text" name="annexure5" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail5" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td><input type="text" name="annexure6" maxlength="30" style="width: 150px;" /></td>
+                        <td><input type="text" name="annexureDetail6" maxlength="500" style="width: 863px" /></td>
+                    </tr>
+
+                </table>
+
+                </td>
+                </tr>
+                </table>
+            </fieldset>
+            <br><br>
+            <center><span class="warning">**Please do check your data properly before submitting**</span></center>
+            <br><br>
+            <button id="prev2">PREV</button>
+            <button id="Submit" type="submit">SUBMIT</button>
+        </div>
+
+
+
+
+        <!----- Submit and Reset ------------------------------------------------->
+    </form>
+
+</body>
+<!-- <script >
+    var page1 = document.getElementById("page-1");
+        var page2= document.getElementById('page-2');
+        var next1 = document.getElementById('next1');
+
+        next1.addEventListener("click", function () {
+            console.log('hi');
+            page1.style.display = "none";
+            page2.style.display = "block";
+        });
+</script> -->
+
+</html>
