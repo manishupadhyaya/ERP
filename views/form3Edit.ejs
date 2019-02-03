@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <img src="nitbanner.png" alt="NITS" height="150vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+        </div>
+        <center>
+            <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                Registraion Portal
+            </div>
+        </center>
+        <br><br><br>
+        <div class="container col-lg-10 col-md-12 col-sm-12">
+            <legend>11. UPLOAD DETAILS</legend>
+            <br>
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST">
+                    <% docs.forEach((doc)=>{ %>
+
+            <div style="border: 1px dashed #ff3c00; padding: 5px;">
+                <b>Note:</b> Only the Consolidated/Final marksheets should be uploaded. In case of lost document,
+                a scanned copy of police complain/FIR file will be entertained.</div>
+            <br><br><br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                i. Photograph
+                <input type="file" value="<%= doc.photo %>" name="photo">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                ii. Signature
+                <input type="file" value="<%= doc.signature %>" name="signature">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                iii. Transaction Bill
+                <input type="file" value="<%= doc.transBill %>" name="transBill">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                iv. Age Proof
+                <input type="file" value="<%= doc.ageC %>" name="ageC">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                v. Caste Certificate
+                <input type="file" value="<%= doc.casteC %>" name="casteC">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                vi. PWD Certificate(If applicable)
+                <input type="file" value="<%= doc.pwdC %>" name="pwdC">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                vii. X Marksheet
+                <input type="file" value="<%= doc.XMarksheet %>" name="XMarksheet">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                viii. X Certificate
+                <input type="file" value="<%= doc.XCertificate %>" name="XCertificate">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                ix. XII Marksheet
+                <input type="file" value="<%= doc.XIIMarksheet %>" name="XIIMarksheet">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                x. XII Certificate
+                <input type="file" value="<%= doc.XIICertificate %>" name="XIICertificate">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xi. Diploma Marksheet
+                <input type="file" value="<%= doc.diplomaMarksheet %>" name="diplomaMarksheet">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xii. Diploma Certificate
+                <input type="file" value="<%= doc.diplomaCertificate %>" name="diplomaCertificate">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xiii. Graduation Marksheet
+                <input type="file" value="<%= doc.gradMarksheet %>" name="gradMarksheet">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xiv. Graduation Certificate
+                <input type="file" value="<%= doc.gradCertificate %>" name="gradCertificate">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xv. Post Graduation Marksheet
+                <input type="file" value="<%= doc.postGradMarksheet %>" name="postGradMarksheet">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xvi. Post Graduation Certificate
+                <input type="file" value="<%= doc.postGradCertificate %>" name="postGradCertificate">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                xvii. Ph.D Certificate
+                <input type="file" value="<%= doc.phdCertificate %>" name="phdCertificate">
+            </div>
+            <br>
+        </div>
+        <br><br>
+        <div class="container col-lg-10 col-md-12 col-sm-12">
+            <legend>12. EXPERIENCE CERTIFICATES (As per the criteria mentioned in the advertisement)</legend>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                i.
+                <input type="file" value="<%= doc.experience1 %>" name="experience1">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                ii.
+                <input type="file" value="<%= doc.experience2 %>" name="experience2">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                iii.
+                <input type="file" value="<%= doc.experience3 %>" name="experience3">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                iv.
+                <input type="file" value="<%= doc.experience4 %>" name="experience4">
+            </div>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                v.
+                <input type="file" value="<%= doc.experience5 %>" name="experience5">
+            </div>
+            <br>
+        </div>
+        <br><br>
+        <div class="container col-lg-10 col-md-12 col-sm-12">
+            <legend>13. NOC/Advance copy applied for NOC to the respective heads(If applicable) </legend>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <input type="file" value="<%= doc.experience1 %>" name="experience6">
+            </div>
+        </div>
+        <br><br>
+        <div class="col-lg-12 col-md-12 col-sm-12" style="border: 2px dashed #ff3c00; padding: 20px;">
+            <legend>DECLARATION:</legend>
+            I hereby declare that all the information given above is correct to the best of my knowledge and
+            belief.<br>Also I have carefully checked that the position for which I am applying has been
+            advertised by NIT SILCHAR. I fully understand that if it is found that any information given in the
+            application is incorrect/false or if I do not satisfy the eligibility criteria at a later date, my
+            candidature/appointment is liable to be cancelled.
+            <br><br><br>
+            Date:<input type="text" value="<%= doc.declareDate %>" class="form-control col-lg-4 col-md-4 col-sm-4" name="declareDate" />
+            <br>Place:<input type="text" value="<%= doc.declarePlace %>" class="form-control col-lg-4 col-md-4 col-sm-4" name="declarePlace" />
+        </div>
+        <br><br><br>
+        <% }) %>
+
+        <div class="container col-lg-2 col-md-4 col-sm-4">
+            <button type="submit" class="btn"><a href="/form2Edit">Prev</a></button>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+
+    </form>
+        
+    </div>
+<center>
+    <div class="footer col-lg-12 col-md-12 col-sm-12">
+    </div>
+</center>
+
+</body>
+
+</html>

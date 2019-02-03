@@ -1,27 +1,368 @@
-<form action="/form1Edit" method="POST" enctype="multipart/form-data">
+<html>
 
-    <div class="main" id="page-1">
-        ADVERTISEMENT NO. AND DATE:
-        <% docs.forEach((doc)=>{ %>
-        <input type="text" name="advNo" value = "<%= doc.advNo %>"style="margin-left: 100px;" />
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <img src="nitbanner.png" alt="NITS" height="150vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+        </div>
+        <center>
+            <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                Registration Portal
+            </div>
+        </center>
         <br><br><br>
 
+        <div class="container col-lg-10 col-md-10 col-sm-10">
+            <form class="col-lg-12" action="/form1Edit" method="POST">
+            <% docs.forEach((doc)=>{ %>
 
-        <fieldset>
-            <legend>TRANSACTION DETAILS</legend><br><br>
-            TRANSACTION ID
-            
-            <input type="text" name="transactionId" value="<%= doc.transactionId %>" style="margin-left: 205px;"><br><br>
-            BANK NAME
-            <input type="text" name="bankName" value="<%= doc.bankName %>" style="margin-left: 246px;"><br><br>
-            BRANCH NAME
-            <input type="text" name="branchName" value="<%= doc.branchName %>" style="margin-left: 222px;"><br><br>
-            AMOUNT
-            <input type="number" name="amount"  value="<%= doc.amount %>" style="margin-left: 270px;"><br><br>
-            <% }) %>
-        </fieldset>
-        <br><br>
-        <button type="submit">NEXT</button></a>
+                <div class="form-row">
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">1. ADVERTISEMENT NO. AND DATE:</label></legend>
+                        <select name="advNo" id="adv" value="<%= doc.advNo %>" class="form-control" >
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">2. POST APPLIED FOR</label></legend>
+                        <select name="postApplied" value="<%= doc.postApplied %>"  id="adv" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">3. DEPARTMENT</label></legend>
+                        <select name="department" value="<%= doc.department %>" id="adv" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <legend> 4.TRANSACTION DETAILS</legend>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="trans">
+                            <br> A. Transaction ID</label>
+                        <input type="text" class="form-control" id="trans" name="transactionId" value="<%= doc.transactionId %>" >
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="bank">B. Bank Name</label>
+                        <input type="text" class="form-control" id="bank" name="bankName"  value="<%= doc.bankName %>" >
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="branch">C. Branch Name</label>
+                        <input type="text" class="form-control" id="branch" name="branchName"  value="<%= doc.branchName %>" >
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="ifcode">D. IFSC Code</label>
+                        <input type="text" class="form-control" id="ifcode" name="ifsc" value="<%= doc.ifsc %>" >
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="trans">E. Amount</label>
+                        <input type="number" class="form-control" id="trans" name="amount" value="<%= doc.amount %>" >
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="dat">E. Date</label>
+                        <input type="date" class="form-control" id="dat" name="date" value="<%= doc.date %>" >
+                    </div>
+                </div>
+                <br><br><br>
+                        <div class="form-row">
+                            <legend> 5. PERSONAL DETAILS</legend>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="name">
+                                    <br> A. Name of Applicant</label>
+                                <input type="text" class="form-control" id="name" name="name" value="<%= doc.name %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="bank">B.Mother's Name</label>
+                                <input type="text" class="form-control" id="bank" name="motherName" value="<%= doc.motherName %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="branch">C. Father's Name</label>
+                                <input type="text" class="form-control" id="branch" name="fatherName" value="<%= doc.fatherName %>" >
+                            </div>
+                            <div class="form-row">
 
+                                <h4><br><br>D. Address of Communication</h4>
+                                <br><br>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="house"><br> i. H.No.</label>
+                                    <input type="text" class="form-control" id="house" name="houseNoResidential" value="<%= doc.houseNoResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="street">ii. Street</label>
+                                    <input type="text" class="form-control" id="street" name="streetResidential" value="<%= doc.streetResidential %>" >
+                                    <input type="text" class="form-control" id="street" name="streetResidential1" value="<%= doc.streetResidential1 %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="land">iii. Landmark</label>
+                                    <input type="text" class="form-control" id="land" name="landmarkResidential" value="<%= doc.landmarkResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="city">iv. Village/City</label>
+                                    <input type="text" class="form-control" id="city" name="cityResidential" value="<%= doc.cityResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="post">v. Post Office</label>
+                                    <input type="text" class="form-control" id="post" name="postResidential" value="<%= doc.postResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="police">vi. Police Station</label>
+                                    <input type="text" class="form-control" id="police" name="policeResidential" value="<%= doc.policeResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="police">vii. District</label>
+                                    <input type="text" class="form-control" id="police" name="districtResidential" value="<%= doc.districtResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="state">viii. State</label>
+                                    <select name="stateResidential" value="<%= doc.stateResidential %>" id="state" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="country">ix. Country</label>
+                                    <input type="text" class="form-control" id="country" name="countryResidential" value="<%= doc.countryResidential %>" >
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="pin">ix. Pin Code</label>
+                                    <input type="number" class="form-control" id="pin" name="pincodeResidential" value="<%= doc.pincodeResidential %>" >
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <h4> <br><br>
+                                E. Permanent Address</h4>
+                            <!-- <div class="form-group col-lg-10 col-md-10">
+                                <input type="checkbox" class="form-control" name="check" value="<%= doc.check %>" >
+                            </div> -->
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="house"><br> i. H.No.</label>
+                                <input type="text" class="form-control" id="house" name="houseNoPermanent" value="<%= doc.houseNoPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="street">ii. Street</label>
+                                <input type="text" class="form-control" id="street" name="streetPermanent" value="<%= doc.streetPermanent %>" >
+                                <input type="text" class="form-control" id="street" name="streetPermanent1" value="<%= doc.streetPermanent1 %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="land">iii. Landmark</label>
+                                <input type="text" class="form-control" id="land" name="landmarkPermanent" value="<%= doc.landmarkPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="city">iv. Village/City</label>
+                                <input type="text" class="form-control" id="city" name="cityPermanent" value="<%= doc.cityPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="post">v. Post Office</label>
+                                <input type="text" class="form-control" id="post" name="postPermanent" value="<%= doc.postPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="police">vi. Police Station</label>
+                                <input type="text" class="form-control" id="police" name="policePermanent" value="<%= doc.policePermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="police">vii. District</label>
+                                <input type="text" class="form-control" id="police" name="districtPermanent" value="<%= doc.districtPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="state">viii. State</label>
+                                <select name="statePermanent" value="<%= doc.statePermanent %>"  id="state" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="country">ix. Country</label>
+                                <input type="text" class="form-control" id="country" name="countryPermanent" value="<%= doc.countryPermanent %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="pin">ix. Pin Code</label>
+                                <input type="number" class="form-control" id="pin" name="pincodePermanent" value="<%= doc.pincodePermanent %>" >
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-row">
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="email">E. Email</label>
+                                <input type="email" class="form-control" name="email" id="email" value="<%= doc.email %>" >
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="mobile">F. Mobile No.</label>
+                                <input type="number" class="form-control" name="mobileNo" id="mobile" value="<%= doc.number %>" >
+                                <input type="number" class="form-control" name="mobileNo1" id="mobile" value="<%= doc.number1 %>" >
+                            </div>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6">G. Gender</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" value="<%= doc.gender %>"  id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender"  value="<%= doc.gender %>" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Female
+                                            </label>
+                                        </div>
+                                        <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="gender"  value="<%= doc.gender %>" id="gridRadios3"
+                                                value="option3">
+                                            <label class="form-check-label" for="gridRadios3">
+                                                Others
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="dob">H. DOB</label>
+                                <input type="date" class="form-control" name="DOB" value="<%= doc.DOB %>"  id="dob">
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="age">I. Age as on (30/11/2017)</label>
+                                <input type="text" class="form-control" name="age"  value="<%= doc.age %>" id="age">
+                            </div>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">J. Marital Status</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="maritalStatus"  value="<%= doc.maritalStatus %>" id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Married
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="maritalStatus"  value="<%= doc.maritalStatus %>" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Unmarried
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">K. Category</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category" value="<%= doc.category %>"  id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                General
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category"  value="<%= doc.category %>" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                OBC
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category"  value="<%= doc.category %>" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                SC
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category"  value="<%= doc.category %>" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                ST
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">L. PWD</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pwd"  value="<%= doc.pwd %>" id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pwd" value="<%= doc.pwd %>"  id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="dis">M. % of Disability</label>
+                                <input type="text" class="form-control" name="disability"  value="<%= doc.disability %>" id="dis">
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <!-- <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+</div> -->
+                        <br><br>
+                        <div class="container col-lg-2 col-md-4 col-sm-4">
+                            <button type="submit" class="btn">Next</button>
+                        </div>
+                    <% }) %>
+                    </form>
+                </div>
+                
+        </div>
+<center>
+    <div class="footer col-lg-12 col-md-12 col-sm-12">
     </div>
-</form>
+</center>
+</body>
+
+</html>

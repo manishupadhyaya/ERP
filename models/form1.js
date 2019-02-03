@@ -1,13 +1,44 @@
 const mongoose = require('mongoose')
 
 var Form1 = mongoose.Schema({
-    advNo: Number,
+    clickedForm1: Boolean,
+    userId: String,
+    advNo: String,
     transactionId: String,
     bankName: String,
     branchName: String,
+    ifsc: String,
     amount: Number,
-    clickedForm1: Boolean,
-    userId: String
+    date: String,
+    name: String,
+    motherName: String,
+    fatherName: String,
+    houseNoResidential: String,
+    streetResidential: String,
+    streetResidential1: String,
+    cityResidential: String,
+    districtResidential: String,
+    stateResidential: String,
+    countryResidential: String,
+    pincodeResidential: String,
+    houseNoPermanent: String,
+    streetPermanent: String,
+    streetPermanent1: String,
+    cityPermanent: String,
+    districtPermanent: String,
+    statePermanent: String,
+    countryPermanent: String,
+    pincodePermanent: String,
+    email: String,
+    mobileNo: Number,
+    mobileNo1: Number,
+    gender: String,
+    DOB: Date,
+    age: String,
+    maritalStatus: String,
+    category: String,
+    pwd: Boolean,
+    disability: String
 })
 
 var Form1 = module.exports = mongoose.model('Form1',Form1)

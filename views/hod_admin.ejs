@@ -3,8 +3,8 @@
 <h2>Tick out the eligible ones</h2>
 <form method="post" action="/admins/hodAdmin">
 <% docs.forEach((doc) => { %>
-    <input type="checkbox" name="<%= doc.userID %>" value="true" />
-    <h3><%= doc.userID %></h3>
+    <input type="checkbox" name="<%= doc.userId %>" value="true" />
+    <h3><%= doc.userId %></h3>
     <!-- <a href="/admins/<%= 
         doc._id 
         %>">view</a><br> -->

@@ -8,6 +8,7 @@ var UserDetail = mongoose.Schema({
     transactionId: String,
     bankName: String,
     branchName: String,
+    ifsc: String,
     amount: Number,
     transactionDate: Date,
     postApplied: String,
