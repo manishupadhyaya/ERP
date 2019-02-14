@@ -5,8 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="/css/styles/form.css">
+
+   
 </head>
+
+    <style type="text/css">
+        .period {
+            width: 172px;
+        }
+    </style>
 
 <body>
     <div class="container">
@@ -36,85 +44,85 @@
                         <tbody>
                             <tr>
                                 <td>X</td>
-                                <td><input type="text" class="form-control" name="Xboard" /></td>
+                                <td><input type="text" class="form-control" name="Xboard" required/></td>
                                 <td><input type="text" class="form-control" name="Xbranch" disabled /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="Xyear" />
+                                    <input type="number" class="form-control" name="Xyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
                                     </select> -->
                                 </td>
-                                <td><input type="text" class="form-control" name="Xdivision" /></td>
-                                <td><input type="text" class="form-control" name="Xpercentage" /></td>
-                                <td><input type="text" class="form-control" name="Xcgpa" /></td>
+                                <td><input type="number" class="form-control" name="Xdivision" required /></td>
+                                <td><input type="number" class="form-control" name="Xpercentage" /></td>
+                                <td><input type="number" class="form-control" name="Xcgpa" /></td>
                             </tr>
                             <tr>
                                 <td>XII</td>
                                 <td><input type="text" class="form-control" name="XIIboard" /></td>
                                 <td><input type="text" class="form-control" name="XIIbranch" /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="XIIyear" />
+                                    <input type="number" class="form-control" name="XIIyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
                                     </select> -->
                                 </td>
-                                <td><input type="text" class="form-control" name="XIIdivision" /></td>
-                                <td><input type="text" class="form-control" name="XIIpercentage" /></td>
-                                <td><input type="text" class="form-control" name="XIIcgpa" /></td>
+                                <td><input type="number" class="form-control" name="XIIdivision" /></td>
+                                <td><input type="number" class="form-control" name="XIIpercentage" /></td>
+                                <td><input type="number" class="form-control" name="XIIcgpa" /></td>
                             </tr>
                             <tr>
                                 <td>Diploma</td>
                                 <td><input type="text" class="form-control" name="dboard" /></td>
                                 <td><input type="text" class="form-control" name="dbranch" /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="dyear" />
+                                    <input type="number" class="form-control" name="dyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
                                     </select> -->
                                 </td>
-                                <td><input type="text" class="form-control" name="ddivision" /></td>
-                                <td><input type="text" class="form-control" name="dpercentage" /></td>
-                                <td><input type="text" class="form-control" name="dcgpa" /></td>
+                                <td><input type="number" class="form-control" name="ddivision" /></td>
+                                <td><input type="number" class="form-control" name="dpercentage" /></td>
+                                <td><input type="number" class="form-control" name="dcgpa" /></td>
                             </tr>
                             <tr>
                                 <td>Graduation</td>
                                 <td><input type="text" class="form-control" name="gboard" /></td>
                                 <td><input type="text" class="form-control" name="gbranch" /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="gyear" />
+                                    <input type="number" class="form-control" name="gyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
                                     </select> -->
                                 </td>
-                                <td><input type="text" class="form-control" name="gdivision" /></td>
-                                <td><input type="text" class="form-control" name="gpercentage" /></td>
-                                <td><input type="text" class="form-control" name="gcgpa" /></td>
+                                <td><input type="number" class="form-control" name="gdivision" /></td>
+                                <td><input type="number" class="form-control" name="gpercentage" /></td>
+                                <td><input type="number" class="form-control" name="gcgpa" /></td>
                             </tr>
                             <tr>
                                 <td>Post Graduation</td>
                                 <td><input type="text" class="form-control" name="pgboard" /></td>
                                 <td><input type="text" class="form-control" name="pgbranch" /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="pgyear" />
+                                    <input type="number" class="form-control" name="pgyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
                                     </select> -->
                                 </td>
-                                <td><input type="text" class="form-control" name="pgdivision" /></td>
-                                <td><input type="text" class="form-control" name="pgpercentage" /></td>
-                                <td><input type="text" class="form-control" name="pgcgpa" /></td>
+                                <td><input type="number" class="form-control" name="pgdivision" /></td>
+                                <td><input type="number" class="form-control" name="pgpercentage" /></td>
+                                <td><input type="number" class="form-control" name="pgcgpa" /></td>
                             </tr>
                             <tr>
                                 <td>Ph.D.</td>
                                 <td><input type="text" class="form-control" name="phdboard" /></td>
                                 <td><input type="text" class="form-control" name="phdbranch" /></td>
                                 <td>
-                                    <input type="text" class="form-control" name="phdyear" />
+                                    <input type="number" class="form-control" name="phdyear" />
                                     <!-- <select class="form-control">
                                         <option>Monthly</option>
                                         <option>Yearly</option>
@@ -181,9 +189,9 @@
                     <td>1.</td>
                     <td><input type="text" class="form-control" name="exorganization1" /></td>
                     <td><input type="text" class="form-control" name="exdesignation1" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom1" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto1" /></td>
-                    <td><input type="text" class="form-control" name="duryear1" /></td>
+                    <td><input type="date" onchange="fromchangeHandler()" style="width: 200px;" id="exfrom1" class="form-control" name="exfrom1" /></td>
+                    <td><input type="date" onchange="tochangeHandler()" id="exto1" style="width: 200px;" class="form-control"  name="exto1" /></td>
+                    <td><input type="text" class="form-control" id="duryear1" name="duryear1" /></td>
                     <td><input type="text" class="form-control" name="durmonth1" /></td>
                     <td><input type="text" class="form-control" name="payScale1" /></td>
                     <td><input type="text" class="form-control" name="reason1" /></td>
@@ -192,8 +200,8 @@
                     <td>2.</td>
                     <td><input type="text" class="form-control" name="exorganization2" /></td>
                     <td><input type="text" class="form-control" name="exdesignation2" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom2" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto2" /></td>
+                    <td><input type="date" class="form-control" style="width: 200px;" name="exfrom2" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control"  name="exto2" /></td>
                     <td><input type="text" class="form-control" name="duryear2" /></td>
                     <td><input type="text" class="form-control" name="durmonth2" /></td>
                     <td><input type="text" class="form-control" name="payScale2" /></td>
@@ -203,8 +211,8 @@
                     <td>3.</td>
                     <td><input type="text" class="form-control" name="exorganization3" /></td>
                     <td><input type="text" class="form-control" name="exdesignation3" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom3" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto3" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom3" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto3" /></td>
                     <td><input type="text" class="form-control" name="duryear3" /></td>
                     <td><input type="text" class="form-control" name="durmonth3" /></td>
                     <td><input type="text" class="form-control" name="payScale3" /></td>
@@ -214,8 +222,8 @@
                     <td>4.</td>
                     <td><input type="text" class="form-control" name="exorganization4" /></td>
                     <td><input type="text" class="form-control" name="exdesignation4" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom4" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto4" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom4" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto4" /></td>
                     <td><input type="text" class="form-control" name="duryear4" /></td>
                     <td><input type="text" class="form-control" name="durmonth4" /></td>
                     <td><input type="text" class="form-control" name="payScale4" /></td>
@@ -225,8 +233,8 @@
                     <td>5.</td>
                     <td><input type="text" class="form-control" name="exorganization5" /></td>
                     <td><input type="text" class="form-control" name="exdesignation5" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom5" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto5" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom5" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto5" /></td>
                     <td><input type="text" class="form-control" name="duryear5" /></td>
                     <td><input type="text" class="form-control" name="durmonth5" /></td>
                     <td><input type="text" class="form-control" name="payScale5" /></td>
@@ -236,8 +244,8 @@
                     <td>6.</td>
                     <td><input type="text" class="form-control" name="exorganization6" /></td>
                     <td><input type="text" class="form-control" name="exdesignation6" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom6" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto6" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom6" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto6" /></td>
                     <td><input type="text" class="form-control" name="duryear6" /></td>
                     <td><input type="text" class="form-control" name="durmonth6" /></td>
                     <td><input type="text" class="form-control" name="payScale6" /></td>
@@ -247,8 +255,8 @@
                     <td>7.</td>
                     <td><input type="text" class="form-control" name="exorganization7" /></td>
                     <td><input type="text" class="form-control" name="exdesignation7" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom7" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto7" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom7" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto7" /></td>
                     <td><input type="text" class="form-control" name="duryear7" /></td>
                     <td><input type="text" class="form-control" name="durmonth7" /></td>
                     <td><input type="text" class="form-control" name="payScale7" /></td>
@@ -258,8 +266,8 @@
                     <td>8.</td>
                     <td><input type="text" class="form-control" name="exorganization8" /></td>
                     <td><input type="text" class="form-control" name="exdesignation8" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom8" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto8" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom8" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto8" /></td>
                     <td><input type="text" class="form-control" name="duryear8" /></td>
                     <td><input type="text" class="form-control" name="durmonth8" /></td>
                     <td><input type="text" class="form-control" name="payScale8" /></td>
@@ -269,8 +277,8 @@
                     <td>9.</td>
                     <td><input type="text" class="form-control" name="exorganization9" /></td>
                     <td><input type="text" class="form-control" name="exdesignation9" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom9" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto9" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom9" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto9" /></td>
                     <td><input type="text" class="form-control" name="duryear9" /></td>
                     <td><input type="text" class="form-control" name="durmonth9" /></td>
                     <td><input type="text" class="form-control" name="payScale9" /></td>
@@ -280,12 +288,12 @@
                     <td>10.</td>
                     <td><input type="text" class="form-control" name="exorganization10" /></td>
                     <td><input type="text" class="form-control" name="exdesignation10" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exfrom10" /></td>
-                    <td><input type="date" style="width: 80px;" class="form-control" name="exto10" /></td>
-                    <td><input type="text" class="form-control" name="duryear10" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exfrom10" /></td>
+                    <td><input type="date" style="width: 200px;" class="form-control" class="period"  name="exto10" /></td>
+                    <td><input type="text" style="width: 100px;" class="form-control" name="duryear10" /></td>
                     <td><input type="text" class="form-control" name="durmonth10" /></td>
-                    <td><input type="text" class="form-control" name="payScale10" /></td>
-                    <td><input type="text" class="form-control" name="reason10" /></td>
+                    <td><input type="text" style="width: 100px;" class="form-control" name="payScale10" /></td>
+                    <td><input type="text" style="width: 500px;" class="form-control" name="reason10" /></td>
                 </tr>
             </tbody>
         </table>
@@ -505,18 +513,44 @@
             </fieldset> -->
             <br><br><br>
             <div class="container col-lg-2 col-md-4 col-sm-4">
-                <!-- <button class="btn"><a href="/form1">Prev</a></button> -->
-                <input type="submit" name ="submit" value="submit" class="btn">Next</a></button>
+                <button class="btn"><a href="/form1Edit">Prev</a></button>
+                <button type="submit" class="btn">Next</button>
             </div>
         </div>
     </div>
 </form>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
     </div>
+
 <center>
     <div class="footer col-lg-12 col-md-12 col-sm-12">
     </div>
 </center>
+<script>
+    var  getAge = (from, to) => {
+        var today = new Date(to);
+        var birthDate = new Date(from);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
 
+var tochangeHandler = () => {
+    var from = document.getElementById('exfrom1').value
+    var to = document.getElementById('exfrom1').value
+    document.getElementById('duryear1').value = getAge(from, to)
+}
+
+var fromchangeHandler = () => {
+    var from = document.getElementById('exfrom1').value
+    var to = document.getElementById('exfrom1').value
+    document.getElementById('duryear1').value = getAge(from, to)
+}
+</script>
 </body>
 
 </html>

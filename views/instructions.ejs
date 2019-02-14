@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="/css/styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles/main.css">
+    <link rel="stylesheet" href="/css/styles/form.css">
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="logo col-lg-3 col-md-3 col-sm-3">
+            <img src="nit_logo.png" alt="NITS" height="110vh" width="110vh">
+        </div>
+        <div class="head col-lg-12 col-md-12 col-sm-12">NATIONAL INSTITUTE OF TECHNOLOGY, SILCHAR
+            <br>SILCHAR-788010(ASSAM)
+        </div>
+    </div>
+    <div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <center>
+                <div class="subhead col-sm-12 col-md-12 col-lg-7">
+                    Registraion Portal
+                    <h4>(General Instructions)</h4>
+                </div>
+            </center>
+            <center>
+                <div id="box" class="col-sm-12 col-md-12">
+                    <center>
+                        <h4 style="color: maroon;"><b>INSTRUCTIONS FOR FILLING ONLINE APPLICATION FORM AND
+                                SENDING THE REGISTRATION PAGE BY POST</b></h4>
+                    </center><br><br>
+                    <h4> <span class="essential">*</span> Better view on Desktop. <span class="essential">*</span></h4>
+                    <br><br>
+                    1. Candidate shall log on to <b>www.xyz.com</b> and click proceeds for Admission and then
+                    registration. <br><br>
+                    2. Check on the checkbox and click on to NEXT to register or enter Login & Password if you are already registered. <br><br>
+                    3. Before you proceed to register yourself, you must ensure that you have read and understood the
+                    eligibility criteria & reservation policy for the POST you are applying for. <br><br>
+                    4. Candidate should fill his / her basic details like Date of Birth (DOB), Address, State, City,
+                    Religion,
+                    Contact / Mobile Numbers and Email very carefully. <br><br>
+                    5. Choose your password at least of 6-10 characters. Please remember your password and don’t share
+                    with others. <br><br>
+                    6. Before final submission of online Application Form, read the declaration given on the website
+                    carefully and given your consent on it, failing which you will not be able to complete your
+                    registration. So, you must check the information details carefully before final submission of
+                    Registration Form. <br><br>
+                    7. Please note that after successfully submitting the Application Form, the candidate will get a
+                   Mail on
+                    his / her Email ID that will ensure his/her provisional registration successfully with a Registration Number
+                    and
+                    Password. For this, candidate should provide valid Email ID. <br><br>
+                    8. After successfully submitting Online Application Form for -------, kindly note down your Form
+                    Number for future reference. The processing of Application Form will begin only after the
+                    successful
+                    payment of Application Fee. <br><br>
+                    9. Take PRINT of Registration Page. <br><br>
+                    10. OVERWRITING, CUTTINGS, ERASING IN THE REGISTRATION PAGE OR INCOMPLETE REGISTRATION
+                    PAGE MAY LEAD TO REJECTION OF FORM AND SHOULD BE AVOIDED. ANY ERROR ARISING ON THIS
+                    ACCOUNT SHALL BE THE RESPONSIBILITY OF THE CANDIDATE. <br><br>
+                    11. The Registration Page duly filled in / signed should be sent to --ADDRESS-- in the envelope by Registered/Speed Post only, so as to reach within one week
+                    of the last date. The candidate must retain photocopy of his / her filled in Registration Page for
+                    future
+                    correspondence, if required. <br><br>
+                    12. If a candidate submits more than one Registration Page, his / her candidature shall liable to
+                    be
+                    cancelled and debarred for future examination(s). No communication will be sent in this regard. <br><br>
+                    13. Request for change or correction of any information, once given in the Registration Page, shall
+                    not
+                    be entertained under any circumstances after final submission. The BOARD will not be responsible for any consequences
+                    arising out of non-acceptance of any correction / addition / deletion in any particular once filled
+                    in
+                    the application form, whatsoever the reasons may be. <br><br>
+                    14. Photograph : Firmly affix one recent high contrast passport size coloured photograph (taken on
+                    or
+                    after 05.03.2018) with gum / fevicol (not to be pinned or stapled) in the space provided for it in
+                    the
+                    Registration Page. The photograph must indicate clearly the name of the candidate along with the
+                    date of taking the photograph. It should be without cap or goggles. Spectacles are allowed.
+                    Polaroid
+                    photos are not acceptable. Candidates not complying with these instructions or with unclear
+                    photograph are liable to be rejected. Candidates shall keep 10 identical photographs in reserve for
+                    use at the time of Entrance Examination / Counselling / Document Verification / Admission. <br><br>
+                </div>
+            </center>
+            <center>
+                <span style="color: red; font-size: 15px;">
+                    <input id="myCheck" onclick="myFunction()" type="checkbox"> I have read the instructions thoroughly and want to
+                    proceed further.
+                </span>
+            </center>
+            <center>
+                <br><br>
+                <span id="button">
+                    <a href="/form1">
+                        <button class="btn btn-block" id='myBtn' disabled type="submit" style="font-size: 20px; color: white; padding: 5px; width: 100px; text-align: center;">NEXT
+                        </button>
+                    </a>
+                </span>
+            </center>
+
+            <center>
+                <div class="footer"></div>
+            </center>
+        </div>
+    </div>
+</body>
+<script>
+    var check = false
+    var checked = document.getElementById('myCheck').checked
+    var btn = document.getElementById('myBtn')
+
+    const myFunction = () => {
+        checked = !checked
+
+        if(!checked) {
+            btn.disabled = true
+        } else {
+            btn.disabled = false
+        }
+    }
+
+    
+</script>
+
+</html>

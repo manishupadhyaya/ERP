@@ -3,22 +3,56 @@
 <h2>Send list to the director</h2>
 <form method="post" action="/admins/establishmentAdmin">
     <h3>List of eligible candidates</h3>
+<table>
+    <tr>
+        <th>Registration ID</th>
+        <th>Name</th>
+        <th>Post Applied</th>
+        <th>Gender</th>
+        <th></th>
+        <th></th>
+    </tr>
 <% docs.forEach((doc) => { %>
     <% if(doc.eligibility) { %>
-        <h3><%= doc.userID %></h3>
-        <a href="/admins/<%= doc._id %>">view</a><br>
+        <tr>
+        <td><%= doc.userId %></td>>
+        <td><%= doc.name %></td>>
+        <td><%= doc.postApplied %></td>>
+        <td><%= doc.gender %></td>>
+        <td><%= doc.Remarks %></td>
+        <td><a target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
+    </tr>
     <% } %>
 <% }) %>
+</table>
 <br>
 <br>
 <h3>List of rejected candidates</h3>
-<% docs.forEach((doc) => { %>
+<table>
+        <tr>
+                <th>Registration ID</th>
+                <th>Name</th>
+                <th>Post Applied</th>
+                <th>Gender</th>
+                <th></th>
+                <th></th>
+            </tr>
+    <% docs.forEach((doc) => { %>
     <% if(!doc.eligibility) { %>
-        <h3><%= doc.userID %></h3>
-        <a href="/admins/<%= doc._id %>">view</a><br>
-
+        <tr>
+                <td><%= doc.userId %></td>>
+                <td><%= doc.name %></td>>
+                <td><%= doc.postApplied %></td>>
+                <td><%= doc.gender %></td>>
+                <td><%= doc.Remarks %></td>
+                <td><a target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
+        </tr>
     <% } %>
 <% }) %>
+</table>
+
+<a href="/csv">Get data</a>
+
 
 <br><br>
 <p>Send list to the director sir</p>

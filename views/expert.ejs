@@ -1,0 +1,84 @@
+<h1>Expert Panel</h1>
+
+<button><a target="_blank" href="/admins/superAdmin/addPanel">Add panel</a></button>
+
+<form method="post" action="/admins/superAdmin/mail">
+<% docs.forEach(doc => { %>
+    <div>
+        <div>
+            <label for="advNo">Advertisement No. :</label>
+            <%= doc.advNo %>
+            <label for="postFor">Post for :</label>
+            <%= doc.postFor %>
+            <label for="date">Date :</label>
+            <%= doc.date %>
+            <label for="place">Place :</label>
+            <%= doc.place %>
+        </div>
+
+        <table>
+            <tr>
+                <th>Sl No.</th>
+                <th>Name of the Expert</th>
+                <th>Designation</th>
+                <th>Affiliation</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><%= doc.name1 %></td>
+                <td><%= doc.designation1 %></td>
+                <td><%= doc.affiliation1 %></td>
+                <td><%= doc.contactNo1 %></td>
+                <td><%= doc.email1 %></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><%= doc.name2 %></td>
+                <td><%= doc.designation2 %></td>
+                <td><%= doc.affiliation2 %></td>
+                <td><%= doc.contactNo2 %></td>
+                <td><%= doc.email2 %></td>
+             </tr>
+             <tr>
+                 <td>3</td>
+                 <td><%= doc.name3 %></td>
+                <td><%= doc.designation3 %></td>
+                <td><%= doc.affiliation3 %></td>
+                <td><%= doc.contactNo3 %></td>
+                <td><%= doc.email3 %></td>
+             </tr>
+             <tr>
+                <td>4</td>
+                <td><%= doc.name4 %></td>
+                <td><%= doc.designation4 %></td>
+                <td><%= doc.affiliation4 %></td>
+                <td><%= doc.contactNo4 %></td>
+                <td><%= doc.email4 %></td>
+             </tr>
+             <tr>
+                 <td>5</td>
+                 <td><%= doc.name5 %></td>
+                 <td><%= doc.designation5 %></td>
+                 <td><%= doc.affiliation5 %></td>
+                 <td><%= doc.contactNo5 %></td>
+                 <td><%= doc.email5 %></td>
+             </tr>
+             <tr>
+                 <td>6</td>
+                 <td><%= doc.name6 %></td>
+                <td><%= doc.designation6 %></td>
+                <td><%= doc.affiliation6 %></td>
+                <td><%= doc.contactNo6 %></td>
+                <td><%= doc.email6 %></td>
+             </tr>
+        </table>
+ </div>
+
+<% }) %>
+
+<button type="submit">mail</button>
+
+</form>
+    

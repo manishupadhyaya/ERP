@@ -1,0 +1,24 @@
+<h1>Check your data properly and then submit</h1>
+
+<p>Branch name:</p> <p><%= body.branchName %></p>
+
+<p><%= body.Xboard %></p>
+<img src="<%= body.photo %>" alt="">
+
+    <!-- 
+      captcha code
+     -->
+     <!-- <div class="row">
+            <div class="col-md-4"></div>
+              <div class="form-group col-md-4">
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+              </div>
+            </div>
+          </div> -->
+          
+<form action="formFinal" method="post">
+<button type="submit">Confirm</button>
+</form>
+<button><a href="/form1">Cancel</a></button>
+
+<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->

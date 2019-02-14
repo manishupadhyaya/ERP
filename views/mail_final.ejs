@@ -1,0 +1,19 @@
+<h2>Mail offer letter</h2>
+<form method="post" action="/admins/establishmentAdmin/mail">
+<table>
+    <tr>
+        <th></th>
+        <th>Registration ID</th>
+    </tr>
+<% docs.forEach((doc) => { %>
+    <% if (doc.finallySelected) { %>
+        <tr>
+            <!-- <td><input type="checkbox" name="<%= doc.userId %>" value="true" /></td> -->
+            <td><%= doc.userId %></td>
+        </tr>
+    <% } %>
+    <% }) %>
+</table>
+    <button type="submit">Mail offer letter</button>
+</form>
+<a href="/admins/logout" class="btn btn-secondary">Logout</a>

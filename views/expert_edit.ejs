@@ -1,0 +1,25 @@
+<h1>edit expert panel</h1>
+<h2>Caution: Only send mail once all the experts has been added</h2>
+
+<form method="post" action="/admins/superAdmin/addExpert">
+<table>
+        <tr>
+            <th>serial no.</th>
+            <th>expert name</th>
+            <th>email</th>
+            <th>mobile no.</th>
+        </tr>
+                <% docs.forEach((doc) => { %>
+                <tr>
+                    <td><%= doc.serialNo</td>
+                    <td><%= doc.name %></td>
+                    <td><%= doc.email %></td>
+                    <td><%= doc.mobileNo %></td>
+                </tr>
+                <%  }) %>
+
+
+
+</table>
+<button type="submit">Send Mail</button>
+</form>

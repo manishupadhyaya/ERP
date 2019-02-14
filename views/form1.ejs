@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="/css/styles/form.css">
 </head>
 
 <body>
@@ -25,22 +25,22 @@
                 <div class="form-row">
                     <div class="form-group col-lg-10 col-md-10">
                         <legend> <label for="adv">1. ADVERTISEMENT NO. AND DATE:</label></legend>
-                        <select name="advNo" id="adv" class="form-control">
-                            <option selected>Choose...</option>
+                        <select name="advNo" id="adv" class="form-control" >
+                            <option >Choose...</option>
                             <option>...</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <legend> <label for="adv">2. POST APPLIED FOR</label></legend>
                         <select name="postApplied" id="adv" class="form-control">
-                            <option selected>Choose...</option>
+                            <option >Choose...</option>
                             <option>...</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <legend> <label for="adv">3. DEPARTMENT</label></legend>
                         <select name="department" id="adv" class="form-control">
-                            <option selected>Choose...</option>
+                            <option >Choose...</option>
                             <option>...</option>
                         </select>
                     </div>
@@ -50,27 +50,27 @@
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="trans">
                             <br> A. Transaction ID</label>
-                        <input type="text" class="form-control" id="trans" name="transactionId">
+                        <input type="text" class="form-control" id="trans" name="transactionId" required>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="bank">B. Bank Name</label>
-                        <input type="text" class="form-control" id="bank" name="bankName">
+                        <input type="text" class="form-control" id="bank" name="bankName" required>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="branch">C. Branch Name</label>
-                        <input type="text" class="form-control" id="branch" name="branchName">
+                        <input type="text" class="form-control" id="branch" name="branchName" required>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="ifcode">D. IFSC Code</label>
-                        <input type="text" class="form-control" id="ifcode" name="ifsc">
+                        <input type="text" class="form-control" id="ifcode" name="ifsc" required>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="trans">E. Amount</label>
-                        <input type="number" class="form-control" id="trans" name="amount">
+                        <input type="number" class="form-control" id="trans" name="amount" required>
                     </div>
                     <div class="form-group col-lg-10 col-md-10">
                         <label for="dat">E. Date</label>
-                        <input type="date" class="form-control" id="dat" name="date">
+                        <input type="date" class="form-control" id="dat" name="date" required>
                     </div>
                 </div>
                 <br><br><br>
@@ -79,15 +79,15 @@
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="name">
                                     <br> A. Name of Applicant</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="bank">B.Mother's Name</label>
-                                <input type="text" class="form-control" id="bank" name="motherName">
+                                <input type="text" class="form-control" id="bank" name="motherName" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="branch">C. Father's Name</label>
-                                <input type="text" class="form-control" id="branch" name="fatherName">
+                                <input type="text" class="form-control" id="branch" name="fatherName" required>
                             </div>
                             <div class="form-row">
 
@@ -95,12 +95,12 @@
                                 <br><br>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="house"><br> i. H.No.</label>
-                                    <input type="text" class="form-control" id="house" name="houseNoResidential">
+                                    <input type="text" class="form-control" id="house" name="houseNoResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="street">ii. Street</label>
-                                    <input type="text" class="form-control" id="street" name="streetResidential">
-                                    <input type="text" class="form-control" id="street" name="streetResidential1">
+                                    <input type="text" class="form-control" id="street" name="streetResidential" required>
+                                    <input type="text" class="form-control" id="street1" name="streetResidential1">
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="land">iii. Landmark</label>
@@ -108,19 +108,19 @@
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="city">iv. Village/City</label>
-                                    <input type="text" class="form-control" id="city" name="cityResidential">
+                                    <input type="text" class="form-control" id="city" name="cityResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="post">v. Post Office</label>
-                                    <input type="text" class="form-control" id="post" name="postResidential">
+                                    <input type="text" class="form-control" id="post" name="postResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="police">vi. Police Station</label>
-                                    <input type="text" class="form-control" id="police" name="policeResidential">
+                                    <input type="text" class="form-control" id="police" name="policeResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="police">vii. District</label>
-                                    <input type="text" class="form-control" id="police" name="districtResidential">
+                                    <input type="text" class="form-control" id="district" name="districtResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="state">viii. State</label>
@@ -131,11 +131,11 @@
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="country">ix. Country</label>
-                                    <input type="text" class="form-control" id="country" name="countryResidential">
+                                    <input type="text" class="form-control" id="country" name="countryResidential" required>
                                 </div>
                                 <div class="form-group col-lg-10 col-md-10">
                                     <label for="pin">ix. Pin Code</label>
-                                    <input type="number" class="form-control" id="pin" name="pincodeResidential">
+                                    <input type="number" class="form-control" id="pin" name="pincodeResidential" required>
                                 </div>
                             </div>
 
@@ -143,59 +143,61 @@
                         <div class="form-row">
                             <h4> <br><br>
                                 E. Permanent Address</h4>
-                            <!-- <div class="form-group col-lg-10 col-md-10">
-                                <input type="checkbox" class="form-control" name="check">
-                            </div> -->
+                             <!-- button for same as above -->
+                           <div id="lifCheck" onclick="myFunction()">Same as above</div>
+                        
+                           <!-- <button onclick="myfunction()">Check value</button> -->
+
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="house"><br> i. H.No.</label>
-                                <input type="text" class="form-control" id="house" name="houseNoPermanent">
+                                <input type="text" class="form-control" id="houseP" name="houseNoPermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="street">ii. Street</label>
-                                <input type="text" class="form-control" id="street" name="streetPermanent">
-                                <input type="text" class="form-control" id="street" name="streetPermanent1">
+                                <input type="text" class="form-control" id="streetP" name="streetPermanent">
+                                <input type="text" class="form-control" id="street1P" name="streetPermanent1">
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="land">iii. Landmark</label>
-                                <input type="text" class="form-control" id="land" name="landmarkPermanent">
+                                <input type="text" class="form-control" id="landP" name="landmarkPermanent">
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="city">iv. Village/City</label>
-                                <input type="text" class="form-control" id="city" name="cityPermanent">
+                                <input type="text" class="form-control" id="cityP" name="cityPermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="post">v. Post Office</label>
-                                <input type="text" class="form-control" id="post" name="postPermanent">
+                                <input type="text" class="form-control" id="postP" name="postPermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="police">vi. Police Station</label>
-                                <input type="text" class="form-control" id="police" name="policePermanent">
+                                <input type="text" class="form-control" id="policeP" name="policePermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="police">vii. District</label>
-                                <input type="text" class="form-control" id="police" name="districtPermanent">
+                                <input type="text" class="form-control" id="districtP" name="districtPermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="state">viii. State</label>
-                                <select name="statePermanent" id="state" class="form-control">
-                                    <option selected>Choose...</option>
+                                <select name="statePermanent" id="stateP" class="form-control">
+                                    <option >Choose...</option>
                                     <option>...</option>
                                 </select>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="country">ix. Country</label>
-                                <input type="text" class="form-control" id="country" name="countryPermanent">
+                                <input type="text" class="form-control" id="countryP" name="countryPermanent" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="pin">ix. Pin Code</label>
-                                <input type="number" class="form-control" id="pin" name="pincodePermanent">
+                                <input type="number" class="form-control" id="pinP" name="pincodePermanent" required>
                             </div>
                         </div>
                         <br><br>
                         <div class="form-row">
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="email">E. Email</label>
-                                <input type="email" class="form-control" name="email" id="email">
+                                <input type="email" class="form-control" name="email" id="email" required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="mobile">F. Mobile No.</label>
@@ -232,11 +234,11 @@
                             </fieldset>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="dob">H. DOB</label>
-                                <input type="date" class="form-control" name="DOB" id="dob">
+                                <input type="date" class="form-control" name="DOB"  onchange="changeHandler()" id="dob">
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="age">I. Age as on (30/11/2017)</label>
-                                <input type="text" class="form-control" name="age" id="age">
+                                <input type="number" class="form-control" name="age" id="age">
                             </div>
                             <fieldset class="form-group col-lg-10 col-md-10">
                                 <div class="row">
@@ -355,10 +357,62 @@
                 </div>
                 
         </div>
+        <a href="/users/logout" class="btn btn-secondary">Logout</a>
+
 <center>
     <div class="footer col-lg-12 col-md-12 col-sm-12">
     </div>
 </center>
+<script>
+    var clicked = false
+    var myFunction = () => {
+        clicked = !clicked
+
+        if(clicked) {
+        document.getElementById('houseP').value = document.getElementById('house').value
+        document.getElementById('streetP').value = document.getElementById('street').value
+        document.getElementById('street1P').value = document.getElementById('street1').value
+        document.getElementById('landP').value = document.getElementById('land').value
+        document.getElementById('cityP').value = document.getElementById('city').value
+        document.getElementById('postP').value = document.getElementById('post').value
+        document.getElementById('policeP').value = document.getElementById('police').value
+        document.getElementById('districtP').value = document.getElementById('district').value
+        document.getElementById('stateP').value = document.getElementById('state').value
+        document.getElementById('countryP').value = document.getElementById('country').value
+        document.getElementById('pinP').value = document.getElementById('pin').value
+
+    } else {
+        document.getElementById('houseP').value = null
+        document.getElementById('streetP').value = null
+        document.getElementById('street1P').value = null
+        document.getElementById('landP').value = null
+        document.getElementById('cityP').value = null
+        document.getElementById('postP').value = null
+        document.getElementById('policeP').value = null
+        document.getElementById('districtP').value = null
+        document.getElementById('stateP').value = null
+        document.getElementById('countryP').value = null
+        document.getElementById('pinP').value =null
+    }
+    }
+
+var  getAge = (dob) => {
+        var today = new Date();
+        var birthDate = new Date(dob);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+var changeHandler = () => {
+    var dob = document.getElementById('dob').value
+    document.getElementById('age').value = getAge(dob)
+}
+    
+</script>
 </body>
 
 </html>

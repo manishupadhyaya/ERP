@@ -1,3 +1,4 @@
+<body>
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
@@ -24,6 +25,19 @@
             placeholder="Enter Password"
           />
         </div>
+    <!-- 
+      captcha code
+     -->
+     <div class="row">
+        <div class="col-md-4"></div>
+          <div class="form-group col-md-4">
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+          </div>
+        </div>
+      </div>
+
+
+
         <button type="submit" class="btn btn-primary btn-block">Login</button>
       </form>
       <p class="lead mt-4">
@@ -32,3 +46,6 @@
     </div>
   </div>
 </div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
