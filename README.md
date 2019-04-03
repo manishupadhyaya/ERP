@@ -1,6 +1,6 @@
-# Node.js & Passport Login
+# ERP System for Non Faculty Recruitment
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
+This is an ERP app using Node.js, Express, Passport, Mongoose, EJS and some other packages for our college National Institute of Technology, Silchar for Non faculty recruitment
 
 ### Version: 2.0.0
 
