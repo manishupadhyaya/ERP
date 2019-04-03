@@ -1,25 +1,143 @@
-<h1>edit expert panel</h1>
-<h2>Caution: Only send mail once all the experts has been added</h2>
+<head>
+    <style>
+        table{
+            border-collapse: separate;
+border-spacing: 100px 5px;
+        }
+        .subhead {
+            width: 100%;
+            margin-top: 10vh;
+            border-radius: 10px;
+            padding: 10px;
+            color: black;
+            font-size: 40px;
+            text-align: center;
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            background-color: lightsteelblue;
+        }
+        .btn
+        {
+            background-color: lightsteelblue;
+            color: black;
+            border-radius: 5px;
+            display: inline;
+            font-weight: bold;
+        }
+        .box {
+            padding-left: 10px;
+        }
 
-<form method="post" action="/admins/superAdmin/addExpert">
-<table>
-        <tr>
-            <th>serial no.</th>
-            <th>expert name</th>
-            <th>email</th>
-            <th>mobile no.</th>
-        </tr>
-                <% docs.forEach((doc) => { %>
+        .border {
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            background-color: lightsteelblue;
+            border-radius: 10px;
+        }
+        .footer{
+            width: 100%;
+            height: 100px;
+            background-color: lightsteelblue;
+            /* margin-left: 10px;
+            margin-right: 10px; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a :hover{
+            text-decoration: none;
+            
+            color: black;
+        }
+    </style>
+</head>
+<div class="jumbotron">
+    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+</div>
+
+<center>
+    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+        EDIT EXPERT PANEL
+    </div>
+</center>
+<br><br><br>
+<form method="post" action="/admins/superAdmin/edit/<%= doc._id %>">
+    <div>
+            <div>
+                <label for="advNo">Advertisement No. :</label>
+                <input type="text" id="advNo" name="advNo" value="<%= doc.advNo %>">
+                <label for="postFor">Post for :</label>
+                <input type="text" id="postFor" name="postFor" value="<%= doc.postFor %>">
+                <label for="date">Date :</label>
+                <input type="date" id="date" name="date" value="<%= doc.date %>">
+                <label for="place">Place :</label>
+                <input type="text" id="place" name="place" value="<%= doc.place %>">
+            </div>
+ 
+            <table>
                 <tr>
-                    <td><%= doc.serialNo</td>
-                    <td><%= doc.name %></td>
-                    <td><%= doc.email %></td>
-                    <td><%= doc.mobileNo %></td>
+                    <th>Sl No.</th>
+                    <th>Name of the Expert</th>
+                    <th>Designation</th>
+                    <th>Affiliation</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
                 </tr>
-                <%  }) %>
-
-
-
-</table>
-<button type="submit">Send Mail</button>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="name1" value="<%= doc.name1 %>"></td>
+                    <td><input type="text" name="designation1" value="<%= doc.designation1 %>"></td>
+                    <td><input type="text" name="affiliation1" value="<%= doc.affiliation1 %>"></td>
+                    <td><input type="number" name="contactNo1" value="<%= doc.contactNo1 %>"></td>
+                    <td><input type="text" name="email1" value="<%= doc.email1 %>"></td>
+                </tr>
+                <tr>
+                     <td>2</td>
+                     <td><input type="text" name="name2" value="<%= doc.name2 %>"></td>
+                    <td><input type="text" name="designation2" value="<%= doc.designation2 %>"></td>
+                    <td><input type="text" name="affiliation2" value="<%= doc.affiliation2 %>"></td>
+                    <td><input type="number" name="contactNo2" value="<%= doc.contactNo2 %>"></td>
+                    <td><input type="text" name="email2" value="<%= doc.email2 %>"></td>
+                 </tr>
+                 <tr>
+                     <td>3</td>
+                     <td><input type="text" name="name3" value="<%= doc.name3 %>"></td>
+                    <td><input type="text" name="designation3" value="<%= doc.designation3 %>"></td>
+                    <td><input type="text" name="affiliation3" value="<%= doc.affiliation3 %>"></td>
+                    <td><input type="number" name="contactNo3" value="<%= doc.contactNo3 %>"></td>
+                    <td><input type="text" name="email3" value="<%= doc.email3 %>"></td>
+                 </tr>
+                 <tr>
+                     <td>4</td>
+                     <td><input type="text" name="name4" value="<%= doc.name4 %>"></td>
+                    <td><input type="text" name="designation4" value="<%= doc.designation4 %>"></td>
+                    <td><input type="text" name="affiliation4" value="<%= doc.affiliation4 %>"></td>
+                    <td><input type="number" name="contactNo4" value="<%= doc.contactNo4 %>"></td>
+                    <td><input type="text" name="email4" value="<%= doc.email4 %>"></td>
+                 </tr>
+                 <tr>
+                     <td>5</td>
+                     <td><input type="text" name="name5" value="<%= doc.name5 %>"></td>
+                    <td><input type="text" name="designation5" value="<%= doc.designation5 %>"></td>
+                    <td><input type="text" name="affiliation5" value="<%= doc.affiliation5 %>"></td>
+                    <td><input type="number" name="contactNo5" value="<%= doc.contactNo5 %>"></td>
+                    <td><input type="text" name="email5" value="<%= doc.email5 %>"></td>
+                 </tr>
+                 <tr>
+                     <td>6</td>
+                     <td><input type="text" name="name6" value="<%= doc.name6 %>"></td>
+                    <td><input type="text" name="designation6" value="<%= doc.designation6 %>"></td>
+                    <td><input type="text" name="affiliation6" value="<%= doc.affiliation6 %>"></td>
+                    <td><input type="number" name="contactNo6" value="<%= doc.contactNo6 %>"></td>
+                    <td><input type="text" name="email6" value="<%= doc.email6 %>"></td>
+                 </tr>
+            </table>
+     </div>
+<button class="btn" type="submit">Save changes</button>
 </form>
+<a class="btn" href="/admins/logout" class="btn btn-secondary">Logout</a>

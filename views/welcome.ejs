@@ -1,12 +1,380 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body text-center">
-      <h1><i class="fab fa-node-js fa-3x"></i></h1>
-      <p>Create an account or login</p>
-      <a href="/users/register" class="btn btn-primary btn-block mb-2"
-        >Register</a
-      >
-      <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="/css/bootstrap.css>
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+</head>
+<style type="text/css">
+
+body{
+	background-color: rgb(239, 239, 239);
+	overflow-x: hidden;
+	margin: 0;
+}
+
+@font-face{
+	font-family: 'Century';
+	src: url('/assets/century.ttf');
+}
+
+nav {
+	position: absolute;
+	text-align: left;
+	left: 0;
+	left: 0 !important;
+	background: #040707!important;
+	width: 100vw;
+	transform: scale(1,0);
+	transform-origin: top;
+	transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+nav a {
+	text-decoration: none;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	opacity: 0;
+	color: white;
+	transition: opacity 150ms ease-in-out;
+	font-family: century-gothic;
+	letter-spacing: 0.15em;
+	font-weight: bolder;
+	font-size: 0.9em;
+}
+
+nav a:hover {
+	color: red;
+}
+
+.nav-toggle:checked ~ nav {
+	transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+	
+	font-size: .9em;
+	font-weight: bolder;
+}
+.nav-toggle {
+	display: none;
+}
+
+.nav-toggle-label {
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 1em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	display: block;
+	background: red;
+	height: 1px;
+	width: 1em;
+	border-radius: 2px;
+	position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	content: '';
+	position: absolute;
+}
+
+.nav-toggle-label span::before {
+	bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+	top: 7px;
+}
+
+@media screen and (min-width: 800px) {
+	.nav-toggle-label {
+		display: none;
+	}
+
+	header {
+		display: grid;
+		grid-template-columns: 1fr auto minmax(600px, 3fr) 0.8fr;
+	}
+
+	.log {
+		height: 12vh;
+	}
+
+	nav {
+		all: unset;
+		grid-column: 3 / 4;
+		display: flex;
+		align-items: center;
+		left: 0!important;
+	}
+
+	nav ul {
+		display: flex;
+	}
+
+	nav li {
+		margin-left: 3em;
+		margin-bottom: 0;
+	}
+
+	nav a {
+		opacity: 1;
+		position: relative;
+	}
+
+	nav a::before {
+		content: '';
+		display: block;
+		height: 5px;
+		background: red;
+		position: absolute;
+		top: -.75em;
+		left: 0;
+		right: 0;
+		transform: scale(0, 1);
+		transition: transform ease-in-out 250ms;
+	}
+
+	nav a:hover::before {
+		transform: scale(1,1);
+	}
+	#director{
+		position: absolute;
+		width: 50vw;
+		text-align: justify;
+		top: 18vh;
+		left: 26vw;
+		line-height: 23px;
+		font-size: 1.2vw;
+		font-family: century !important;
+	}
+
+	#nits,#types,#apply{
+		position: relative;
+		width: 53vw;
+		text-align: justify;
+		top: 16vh;
+		font-size: 1.2vw;
+		left: 6vw;
+		font-family: century !important;
+		margin-bottom: 10vh;
+	}
+
+	#types{
+		top: 56vh;
+		left: 18vw;
+
+
+	}
+	#apply{
+		top: 65vh;
+		left: 17vw;
+
+	}
+
+	#third::before{
+		content: '';
+		display: block;
+		height: 1px;
+		background: red;
+		position: absolute;
+		top: 209vh;
+		left: 50%;
+		right: 0;
+		width: 50vw;
+		transform: translateX(-50%);
+	}
+
+	#third::after{
+		content: '';
+		display: block;
+		height: 1px;
+		background: red;
+		position: absolute;
+		top: 247vh;
+		left: 50%;
+		right: 0;
+		width: 50vw;
+		transform: translateX(-50%);
+	}
+
+	
+	
+	#first{
+		background-color: white;
+		position: relative;
+		top: 10vh;
+		width: 80vw;
+		left: 50vw;
+		transform: translateX(-50%);
+		box-shadow: 5px 3px 8px #888888;
+		height: 55vh;
+
+	}
+
+	#second{
+		background-color: white;
+		position: relative;
+		top: 30vh;
+		width: 80vw;
+		left: 50vw;
+		transform: translateX(-50%);
+		box-shadow: 5px 3px 8px #888888;
+		height: 55vh;
+	}
+	#direc-head::after{
+		content: '';
+		display: block;
+		height: 1px;
+		background: #00000040;
+		position: absolute;
+		top: 1.25em;
+		left: 17vw;
+		right: 0;
+		width: 35vw;
+		transform: translateX(-50%);
+	}
+	#about-head::after{
+		content: '';
+		display: block;
+		height: 2px;
+		background: #1a9cdc80;
+		position: absolute;
+		top: 1.25em;
+		left: 17vw;
+		right: 0;
+		width: 35vw;
+		transform: translateX(-50%);
+	}
+	.headerImg{
+		width: 100vw;
+		height: 40vh;
+	}
+	#date{
+		position: absolute;
+		top: 34vh;
+		right: 28px;
+		font-size: 3.5vh;
+	}
+	.footer {
+		color: white;
+		width: 100%;
+		position: relative;
+		top: 60vh;
+		height: 18vh;
+		padding-top: 8vh;
+		background-color: #201e1e;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		margin-bottom: 0;
+	}
+
+	.privacy a {
+		color: white;
+
+	}
+
+}
+
+
+</style>
+<body>
+	<img src="/images/header.jpg" class="headerImg">
+
+	
+	<p id="date"></p>
+	<script type="text/javascript">
+		n =  new Date();
+		y = n.getFullYear();
+		m = n.getMonth() + 1;
+		d = n.getDate();
+		document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+	</script>
+	
+	<div id="google_translate_element"></div>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+		}
+	</script>
+
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	<header id="myHeader" style="height: 9vh;">
+		<nav>
+			<ul >
+				<li><a href="/" style="font-family: century;">Home</a></li>
+				<li><a id="speak" href="/users/register" style="font-family: century;">Register</a></li>
+				<li><a href="/users/login" style="font-family: century;">Login</a></li>
+				<li><a href="/admins" style="font-family: century;">Admin</a></li>
+				<li><a href="#contact" style="font-family: century;">Contact</a></li>
+			</ul>
+		</nav>
+		<label for="nav-toggle" class="nav-toggle-label">
+			<span></span>
+		</label>
+
+	</header>
+
+	<div id="first">
+		<img src="/images/director.jpg" style="width: 15vw;height: 35vh;border: 1px solid black;box-shadow: 5px 3px 8px #888888;position: relative;top: 10vh;left: 3vw;">
+		<h2 id="direc-head" style="position: absolute;top: 6vh;left: 26vw;font-family: sans-serif;">DIRECTOR</h2>
+		<p id="director">With a vision to train and transform young professionals into responsible citizens engaging themselves for the betterment of the society, NIT Silchar has come a long way from being a REC to brand- NITS. The Institute aims to produce skilled and trained industry-ready professionals through imparting quality technical education and acts as the center of excellence for engineering and scientific research. Tremendous hard work, confidence and faith of all the stakeholders and well-wishers of the Institute encourage us to strive towards the zenith of academic excellence.
+		</p>
+	</div>
+
+	<div id="second">
+		<h2 id="about-head" style="position: absolute;top: 6vh;left: 26vw;font-family: sans-serif;top: 2vh;left: 5vw;">ABOUT NITS</h2>
+		<p id="nits">National Institute Of Technology, Silchar (राष्ट्रीय प्रौद्योगिकी संस्थान, सिलचर) is one of the 30 National Institutes of Technology of India and was established in 1967 as a Regional Engineering College in Assam. In 2002 it was upgraded to the status of National Institute of Technology and was declared as Institute of National Importance under the National Institutes of Technology Act, 2007.</p>
+	</div>
+
+	<div id="third">
+		<p id="types">
+			Post Applied for-<br><br>
+			1.qwertyu<br><br>
+			2.qwertyu
+		</p>
+	</div>
+
+	<div id="fourth">
+		<p id="apply">
+		</div>
+		<div class="footer col-lg-12 col-md-12 col-sm-12">
+			<center>
+				<div class="love"> Made with &hearts;</div>
+				<div class="privacy">
+					<a href="#">NITS</a> . <a href="#">About NITS</a> . <a href="#">Privacy</a> . <a href="#">Policy</a> . <a href="#">Terms</a></div>
+				</center>
+			</div>
+
+
+
+		</body>
+		</html>

@@ -1,5 +1,86 @@
-<h2>Mail offer letter</h2>
-<form method="post" action="/admins/establishmentAdmin/mail">
+<head>
+    <style>
+        table{
+            border-collapse: separate;
+border-spacing: 100px 5px;
+        }
+        .subhead {
+            width: 100%;
+            margin-top: 10vh;
+            border-radius: 10px;
+            padding: 10px;
+            color: black;
+            font-size: 40px;
+            text-align: center;
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            background-color: lightsteelblue;
+        }
+        .btn
+        {
+            background-color: lightsteelblue;
+            color: black;
+            border-radius: 5px;
+            display: inline;
+            font-weight: bold;
+        }
+        .box {
+            padding-left: 10px;
+        }
+
+        .border {
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            background-color: lightsteelblue;
+            border-radius: 10px;
+        }
+        .footer{
+            width: 100%;
+            height: 100px;
+            background-color: lightsteelblue;
+            /* margin-left: 10px;
+            margin-right: 10px; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a :hover{
+            text-decoration: none;
+            
+            color: black;
+        }
+    </style>
+</head>
+<div class="jumbotron">
+    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+</div>
+
+<center>
+    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+        MAIL OFFER LETTER
+    </div>
+</center>
+<br><br><br>
+<div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Post Applied
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <form method="post" action="/admins/establishmentAdmin/mail1">
+                    <li><button id="lib" onclick="onClickHandler('lib')" name="post" value='Librarian'>Librarian</button></li>
+            </form>
+            <form method="post" action="/admins/establishmentAdmin/mail1">
+                    <li><button id="coach" onclick="onClickHandler('coach')" name="post" value='Coach'>Coach</button></li>
+            </form>             
+            <form method="post" action="/admins/establishmentAdmin/mail1">
+                    <li><button id="reg" onclick="onClickHandler('reg')" name="post" value='Registerar'>Registerar</button></li>
+            </form>
+        </ul>
+      </div>
 <table>
     <tr>
         <th></th>
@@ -7,13 +88,24 @@
     </tr>
 <% docs.forEach((doc) => { %>
     <% if (doc.finallySelected) { %>
-        <tr>
-            <!-- <td><input type="checkbox" name="<%= doc.userId %>" value="true" /></td> -->
+        <form method="post" action="/admins/establishmentAdmin/mail/<%= doc.userId %>" id="<%= doc.userId %>">
+            <tr>
             <td><%= doc.userId %></td>
-        </tr>
+            <% if (!doc.mail) { %>
+                <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.userId %>')">send</button></td>
+            <% } else { %> 
+                <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.userId %>')">send</button></td>
+            <% } %>
+            </tr>
+        </form>
     <% } %>
     <% }) %>
 </table>
-    <button type="submit">Mail offer letter</button>
-</form>
-<a href="/admins/logout" class="btn btn-secondary">Logout</a>
+    <!-- <button type="submit">Mail offer letter</button>
+</form> -->
+<a class="btn" href="/admins/logout" class="btn btn-secondary">Logout</a>
+<script>
+        onClickHandler = (id) => {
+            document.getElementById(id).submit()
+        }
+    </script>

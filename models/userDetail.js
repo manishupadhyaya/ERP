@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 var UserDetail = mongoose.Schema({
     userId: String,
+    sent: Boolean,
+    sentToDir: Boolean,
+    sentToSuper: Boolean,
+    tick: Boolean,
+    mail: Boolean,
     Remarks : String,
     submitted: Boolean,
     eligibility: Boolean,

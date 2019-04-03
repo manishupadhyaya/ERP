@@ -4,21 +4,79 @@
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="/css/styles/form.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/css/styles/form.css"> -->
+    <style>
+            body{
+                text-align: left;
+            }
+         table{
+                                    border-collapse: separate;
+                                border-spacing: 100px 5px;
+                                }
+                                .subhead {
+                                    width: 100%;
+                                    margin-top: 10vh;
+                                    border-radius: 10px;
+                                    padding: 10px;
+                                    color: black;
+                                    font-size: 40px;
+                                    text-align: center;
+                                    background-color: lightsteelblue;
+                                }
+                                .jumbotron{
+                                    background-color: lightsteelblue;
+                                }
+                                .btn
+                                {
+                                    background-color: lightsteelblue;
+                                    color: black;
+                                    border-radius: 5px;
+                                    display: inline;
+                                    font-weight: bold;
+                                }
+                                .box {
+                                    padding-left: 10px;
+                                }
+                        
+                                .border {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    padding-bottom: 20px;
+                                    background-color: lightsteelblue;
+                                    border-radius: 10px;
+                                }
+                                .footer{
+                                    width: 100%;
+                                    height: 100px;
+                                    background-color: lightsteelblue;
+                                    /* margin-left: 10px;
+                                    margin-right: 10px; */
+                                    border-top-left-radius: 10px;
+                                    border-top-right-radius: 10px;
+                                }
+                                a{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+                                a :hover{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+            </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <img src="nitbanner.png" alt="NITS" height="150vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
-        </div>
-        <center>
-            <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
-                Registration Portal
-            </div>
-        </center>
-        <br><br><br>
+            <div class="jumbotron" >
+                    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+                </div>
+    
+                <center>
+                    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                        Registration Portal
+                    </div>
+                </center>
+                <br><br><br>
 
         <div class="container col-lg-10 col-md-10 col-sm-10">
             <form class="col-lg-12" action="/form1" method="POST">
@@ -79,7 +137,7 @@
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="name">
                                     <br> A. Name of Applicant</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <input type="text" class="form-control" id="name" name="name" value="<%= doc.name %>" readonly required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="bank">B.Mother's Name</label>
@@ -144,7 +202,8 @@
                             <h4> <br><br>
                                 E. Permanent Address</h4>
                              <!-- button for same as above -->
-                           <div id="lifCheck" onclick="myFunction()">Same as above</div>
+                             <label for="lifCheck">Same as above</label>
+                           <div id="lifCheck" onclick="myFunction()"></div>
                         
                            <!-- <button onclick="myfunction()">Check value</button> -->
 
@@ -197,7 +256,7 @@
                         <div class="form-row">
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="email">E. Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required>
+                                <input type="email" class="form-control" name="email" id="email"  value="<%= doc.email %>" readonly required>
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="mobile">F. Mobile No.</label>
@@ -210,21 +269,21 @@
                                     <div class="col-sm-10">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender" id="gridRadios1"
-                                                value="option1" checked>
+                                                value="male" checked>
                                             <label class="form-check-label" for="gridRadios1">
                                                 Male
                                             </label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender" id="gridRadios2"
-                                                value="option2">
+                                                value="female">
                                             <label class="form-check-label" for="gridRadios2">
                                                 Female
                                             </label>
                                         </div>
                                         <div class="form-check disabled">
                                             <input class="form-check-input" type="radio" name="gender" id="gridRadios3"
-                                                value="option3">
+                                                value="others">
                                             <label class="form-check-label" for="gridRadios3">
                                                 Others
                                             </label>
@@ -238,7 +297,7 @@
                             </div>
                             <div class="form-group col-lg-10 col-md-10">
                                 <label for="age">I. Age as on (30/11/2017)</label>
-                                <input type="number" class="form-control" name="age" id="age">
+                                <input type="number" class="form-control" name="age" id="age" readonly>
                             </div>
                             <fieldset class="form-group col-lg-10 col-md-10">
                                 <div class="row">
@@ -351,18 +410,20 @@
 </div> -->
                         <br><br>
                         <div class="container col-lg-2 col-md-4 col-sm-4">
-                            <button type="submit" class="btn">Next</button>
-                        </div>
+                                <button type="submit" class="btn">Next</button>
+                            </div>
                     </form>
                 </div>
                 
-        </div>
-        <a href="/users/logout" class="btn btn-secondary">Logout</a>
+       
+<br><br><br>
+<a href="/users/logout"><button class="btn">LOGOUT</button></a>
 
 <center>
     <div class="footer col-lg-12 col-md-12 col-sm-12">
     </div>
 </center>
+
 <script>
     var clicked = false
     var myFunction = () => {

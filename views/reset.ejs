@@ -1,0 +1,10 @@
+<h3>Hello!</h3>
+<p>Your email id is <%= email %></p>
+<form action="/users/resetPassword" method="post">
+    <input id="email" name='email' type="email" value="<%= email %>">
+    <label for='password'>Please enter your new password</label>
+    <input id="password" name='password' type="password">
+    <label for='cnfrmpassword'>Please enter your new password again</label>
+    <input id="cnfrmpassword" name='cnfrmpassword' type="password">
+    <button type="submit">Change Password</button>
+</form>

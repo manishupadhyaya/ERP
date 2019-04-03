@@ -1,853 +1,1002 @@
-<html>
 
-<head>
-    <title></title>
-    <link rel="stylesheet" href="/public/css/styles/bootstrap.css">
-</head>
 
-</html>
-<h1>User Detail</h1>
-<div class="transactionDetail">
-    <h2>Registration ID:
-        <%= %>
-    </h2>
-    <div style="float: right; margin-right: 100px;"> <img src="<%= body.photo %>" alt="" width="250px" height="300px"></div>
-    <p>Advertisement No. and Date:
-        <%= body.advNo %>
-    </p>
-    <p>Post Applied For:
-        <%= body.postApplied %>
-    </p>
-    <p>Department:
-        <%= body.department %>
-    </p>
-    <h2>Transaction Details:</h2>
-    <p>Transaction ID:
-        <%= body.transactionId %>
-    </p>
-    <p>Bank name:
-        <%= body.bankName %>
-    </p>
-    <p>Branch name:
-        <%= body.branchName %>
-    </p>
-    <p>IFSC Code:
-        <%= body.ifsc %>
-    </p>
-    <p>Amount:
-        <%= body.amount %>
-    </p>
-    <p>Date of Payment:
-        <%= body.transactionDate %>
-    </p>
-</div>
+        <html>
 
-<div class="personalDetail">
-    <h2>Personal Details:</h2>
-    <p>Name of Applicant:
-        <%= body.name %>
-    </p>
-    <p>Mother's Name:
-        <%= body.motherName %>
-    </p>
-    <p>Father's Name:
-        <%= body.fatherName %>
-    </p>
-    <h3>Address of Communication:</h3>
-    <p>H.No.:
-        <%= body.houseNoResidential %>
-    </p>
-    <p>Street:
-        <%= body.streetResidential %>
-        <%= body.streetResidential1 %>
-    </p>
-    <p>Village/City:
-        <%= body.cityResidential %>
-    </p>
-    <p>District:
-        <%= body.districtResidential %>
-    </p>
-    <p>State:
-        <%= body.stateResidential %>
-    </p>
-    <p>Country:
-        <%= body.countryResidential %>
-    </p>
-    <p>Pin Code:
-        <%= body.pincodeResidential %>
-    </p>
-    <h3>Permanent Address:</h3>
-    <p>H.No.:
-        <%= body.houseNoPermanent %>
-    </p>
-    <p>Street:
-        <%= body.streetPermanent %>
-        <%= body.streetPermanent1 %>
-    </p>
-    <p>Village/City:
-        <%= body.cityPermanent %>
-    </p>
-    <p>District:
-        <%= body.districtPermanent %>
-    </p>
-    <p>State:
-        <%= body.statePermanent %>
-    </p>
-    <p>Country:
-        <%= body.countryPermanent %>
-    </p>
-    <p>Pin Code:
-        <%= body.pincodePermanent %>
-    </p>
-    <p>Email:
-        <%= body.email %>
-    </p>
-    <p>Mobile No.:
-        <%= body.mobileNo %>
-    </p>
-    <p>Gender:
-        <%= body.gender %>
-    </p>
-    <p>Date of Birth:
-        <%= body.DOB %>
-    </p>
-    <p>Age:
-        <%= body.age %>
-    </p>
-    <p>Marital Status:
-        <%= body.maritalStatus %>
-    </p>
-    <p>Category:
-        <%= body.category %>
-    </p>
-    <p>PWD:
-        <%= body.pwd %>
-    </p>
-    <p>%-age of Disability:
-        <%= body.disability %>
-    </p>
-</div>
+                <head>
+                    <title></title>
+                    <link rel="stylesheet" href="/css/bootstrap.css">
+                    <style>
+                        table{
+                            border-collapse: separate;
+  border-spacing: 100px 5px;
+                        }
+                        .subhead {
+                            width: 100%;
+                            margin-top: 10vh;
+                            border-radius: 10px;
+                            padding: 10px;
+                            color: black;
+                            font-size: 40px;
+                            text-align: center;
+                            background-color: lightsteelblue;
+                        }
+                        .jumbotron{
+                            background-color: lightsteelblue;
+                        }
+                        .btn
+                        {
+                            background-color: lightsteelblue;
+                            color: black;
+                            border-radius: 5px;
+                            display: inline;
+                        }
+                        .box {
+                            padding-left: 10px;
+                        }
+                
+                        .border {
+                            padding-top: 20px;
+                            padding-left: 30px;
+                            padding-bottom: 20px;
+                            background-color: lightsteelblue;
+                            border-radius: 10px;
+                        }
+                        .footer{
+                            width: 100%;
+                            height: 100px;
+                            background-color: lightsteelblue;
+                            /* margin-left: 10px;
+                            margin-right: 10px; */
+                            border-top-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                        }
+                        a{
+                            text-decoration: none;
+                            color: black;
+                        }
+                        a :hover{
+                            text-decoration: none;
+                            
+                            color: black;
+                        }
+                    </style>
+                </head>
+                
+                <body>
+                <!-- <div class="container"> -->
+                    <div class="jumbotron">
+                        <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+                    </div>
 
-<div class="educationalQualification">
-    <h2>Educational Qualification:</h2>
-
-    <table>
-        <tr>
-            <th>Degree</th>
-            <th>Name of Board</th>
-            <th>Branch/Specialization</th>
-            <th>Year of completion</th>
-            <th>Div./Class</th>
-            <th>%-age of marks</th>
-            <th>CGPA/CPI</th>
-        </tr>
-        <tr>
-            <th>X</th>
-            <td>
-                <%= body.Xboard %>
-            </td>
-            <td>
-                <%= body.Xbranch %>
-            </td>
-            <td>
-                <%= body.Xyear %>
-            </td>
-            <td>
-                <%= body.Xdivision %>
-            </td>
-            <td>
-                <%= body.Xpercentage %>
-            </td>
-            <td>
-                <%= body.Xcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>XII</th>
-            <td>
-                <%= body.XIIboard %>
-            </td>
-            <td>
-                <%= body.XIIbranch %>
-            </td>
-            <td>
-                <%= body.XIIyear %>
-            </td>
-            <td>
-                <%= body.XIIdivision %>
-            </td>
-            <td>
-                <%= body.XIIpercentage %>
-            </td>
-            <td>
-                <%= body.XIIcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Diploma</th>
-            <td>
-                <%= body.dboard %>
-            </td>
-            <td>
-                <%= body.dbranch %>
-            </td>
-            <td>
-                <%= body.dyear %>
-            </td>
-            <td>
-                <%= body.ddivision %>
-            </td>
-            <td>
-                <%= body.dpercentage %>
-            </td>
-            <td>
-                <%= body.dcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Graduation</th>
-            <td>
-                <%= body.gboard %>
-            </td>
-            <td>
-                <%= body.gbranch %>
-            </td>
-            <td>
-                <%= body.gyear %>
-            </td>
-            <td>
-                <%= body.gdivision %>
-            </td>
-            <td>
-                <%= body.gpercentage %>
-            </td>
-            <td>
-                <%= body.gcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Post Graduation</th>
-            <td>
-                <%= body.pgboard %>
-            </td>
-            <td>
-                <%= body.pgbranch %>
-            </td>
-            <td>
-                <%= body.pgyear %>
-            </td>
-            <td>
-                <%= body.pgdivision %>
-            </td>
-            <td>
-                <%= body.pgpercentage %>
-            </td>
-            <td>
-                <%= body.pgcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Ph.D.</th>
-            <td>
-                <%= body.phdboard %>
-            </td>
-            <td>
-                <%= body.phdbranch %>
-            </td>
-            <td>
-                <%= body.phdyear %>
-            </td>
-            <td>
-                <%= body.phddivision %>
-            </td>
-            <td>
-                <%= body.phdpercentage %>
-            </td>
-            <td>
-                <%= body.phdcgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Others</th>
-            <td>
-                <%= body.oboard %>
-            </td>
-            <td>
-                <%= body.obranch %>
-            </td>
-            <td>
-                <%= body.oyear %>
-            </td>
-            <td>
-                <%= body.odivision %>
-            </td>
-            <td>
-                <%= body.opercentage %>
-            </td>
-            <td>
-                <%= body.ocgpa %>
-            </td>
-        </tr>
-        <tr>
-            <th>Title of Ph.D. Thesis</th>
-            <td>
-                <%= body.tophdboard %>
-            </td>
-            <td>
-                <%= body.tophdbranch %>
-            </td>
-            <td>
-                <%= body.tophdyear %>
-            </td>
-            <td>
-                <%= body.tophddivision %>
-            </td>
-            <td>
-                <%= body.tophdpercentage %>
-            </td>
-            <td>
-                <%= body.tophdcgpa %>
-            </td>
-        </tr>
-    </table>
-</div>
-<div>
-    <h2>Experience:</h2>
-    <table>
-        <tr>
-            <th rowspan="2">S No.</th>
-            <th rowspan="2">Organisation</th>
-            <th rowspan="2">Designation</th>
-            <th colspan="2">Period(Date)</th>
-            <th colspan="2">Duration</th>
-            <th rowspan="2">Payscale</th>
-            <th rowspan="2">Reason for leaving</th>
-        </tr>
-        <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Year</th>
-            <th>Month</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>
-                <%= body.exorganization1 %>
-            </td>
-            <td>
-                <%= body.exdesignation1 %>
-            </td>
-            <td>
-                <%= body.exfrom1 %>
-            </td>
-            <td>
-                <%= body.exto1 %>
-            </td>
-            <td>
-                <%= body.duryear1 %>
-            </td>
-            <td>
-                <%= body.durmonth1 %>
-            </td>
-            <td>
-                <%= body.payScale1 %>
-            </td>
-            <td>
-                <%= body.reason1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>
-                <%= body.exorganization2 %>
-            </td>
-            <td>
-                <%= body.exdesignation2 %>
-            </td>
-            <td>
-                <%= body.exfrom2 %>
-            </td>
-            <td>
-                <%= body.exto2 %>
-            </td>
-            <td>
-                <%= body.duryear2 %>
-            </td>
-            <td>
-                <%= body.durmonth2 %>
-            </td>
-            <td>
-                <%= body.payScale2 %>
-            </td>
-            <td>
-                <%= body.reason2 %>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>
-                <%= body.exorganization3 %>
-            </td>
-            <td>
-                <%= body.exdesignation3 %>
-            </td>
-            <td>
-                <%= body.exfrom3 %>
-            </td>
-            <td>
-                <%= body.exto3 %>
-            </td>
-            <td>
-                <%= body.duryear3 %>
-            </td>
-            <td>
-                <%= body.durmonth3 %>
-            </td>
-            <td>
-                <%= body.payScale3 %>
-            </td>
-            <td>
-                <%= body.reason3 %>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>
-                <%= body.exorganization4 %>
-            </td>
-            <td>
-                <%= body.exdesignation4 %>
-            </td>
-            <td>
-                <%= body.exfrom4 %>
-            </td>
-            <td>
-                <%= body.exto4 %>
-            </td>
-            <td>
-                <%= body.duryear4 %>
-            </td>
-            <td>
-                <%= body.durmonth4 %>
-            </td>
-            <td>
-                <%= body.payScale4 %>
-            </td>
-            <td>
-                <%= body.reason4 %>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>
-                <%= body.exorganization5 %>
-            </td>
-            <td>
-                <%= body.exdesignation5 %>
-            </td>
-            <td>
-                <%= body.exfrom5 %>
-            </td>
-            <td>
-                <%= body.exto5 %>
-            </td>
-            <td>
-                <%= body.duryear5 %>
-            </td>
-            <td>
-                <%= body.durmonth5 %>
-            </td>
-            <td>
-                <%= body.payScale5 %>
-            </td>
-            <td>
-                <%= body.reason5 %>
-            </td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>
-                <%= body.exorganization6 %>
-            </td>
-            <td>
-                <%= body.exdesignation6 %>
-            </td>
-            <td>
-                <%= body.exfrom6 %>
-            </td>
-            <td>
-                <%= body.exto6 %>
-            </td>
-            <td>
-                <%= body.duryear6 %>
-            </td>
-            <td>
-                <%= body.durmonth6 %>
-            </td>
-            <td>
-                <%= body.payScale6 %>
-            </td>
-            <td>
-                <%= body.reason6 %>
-            </td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>
-                <%= body.exorganization7 %>
-            </td>
-            <td>
-                <%= body.exdesignation7 %>
-            </td>
-            <td>
-                <%= body.exfrom7 %>
-            </td>
-            <td>
-                <%= body.exto7 %>
-            </td>
-            <td>
-                <%= body.duryear7 %>
-            </td>
-            <td>
-                <%= body.durmonth7 %>
-            </td>
-            <td>
-                <%= body.payScale7 %>
-            </td>
-            <td>
-                <%= body.reason7 %>
-            </td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>
-                <%= body.exorganization8 %>
-            </td>
-            <td>
-                <%= body.exdesignation8 %>
-            </td>
-            <td>
-                <%= body.exfrom8 %>
-            </td>
-            <td>
-                <%= body.exto8 %>
-            </td>
-            <td>
-                <%= body.duryear8 %>
-            </td>
-            <td>
-                <%= body.durmonth8 %>
-            </td>
-            <td>
-                <%= body.payScale8 %>
-            </td>
-            <td>
-                <%= body.reason8 %>
-            </td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>
-                <%= body.exorganization9 %>
-            </td>
-            <td>
-                <%= body.exdesignation9 %>
-            </td>
-            <td>
-                <%= body.exfrom9 %>
-            </td>
-            <td>
-                <%= body.exto9 %>
-            </td>
-            <td>
-                <%= body.duryear9 %>
-            </td>
-            <td>
-                <%= body.durmonth9 %>
-            </td>
-            <td>
-                <%= body.payScale9 %>
-            </td>
-            <td>
-                <%= body.reason9 %>
-            </td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>
-                <%= body.exorganization10 %>
-            </td>
-            <td>
-                <%= body.exdesignation10 %>
-            </td>
-            <td>
-                <%= body.exfrom10 %>
-            </td>
-            <td>
-                <%= body.exto10 %>
-            </td>
-            <td>
-                <%= body.duryear10 %>
-            </td>
-            <td>
-                <%= body.durmonth10 %>
-            </td>
-            <td>
-                <%= body.payScale10 %>
-            </td>
-            <td>
-                <%= body.reason10 %>
-            </td>
-        </tr>
-    </table>
-
-</div>
-<div>
-    <h3>Typing Speed:
-        <%= body.speed %>
-    </h3>
-    <h2>Any Other Experience </h2>
-    <table>
-        <tr>
-            <th>S No.</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>
-                <%= body.oExperience1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>
-                <%= body.oExperience1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>
-                <%= body.oExperience1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>
-                <%= body.oExperience1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>
-                <%= body.oExperience1 %>
-            </td>
-        </tr>
-    </table>
-</div>
-<div>
-    <h2>List of Annexure Enclosed </h2>
-    <table>
-        <tr>
-            <th>S No.</th>
-            <th>Annexure No.</th>
-            <th>Details</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>
-                <%= body.annexureNo1 %>
-            </td>
-            <td>
-                <%= body.annexureDetails1 %>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>
-                <%= body.annexureNo2 %>
-            </td>
-            <td>
-                <%= body.annexureDetails2 %>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>
-                <%= body.annexureNo3 %>
-            </td>
-            <td>
-                <%= body.annexureDetails3 %>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>
-                <%= body.annexureNo4 %>
-            </td>
-            <td>
-                <%= body.annexureDetails4 %>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>
-                <%= body.annexureNo5 %>
-            </td>
-            <td>
-                <%= body.annexureDetails5 %>
-            </td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>
-                <%= body.annexureNo6 %>
-            </td>
-            <td>
-                <%= body.annexureDetails6 %>
-            </td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>
-                <%= body.annexureNo7 %>
-            </td>
-            <td>
-                <%= body.annexureDetails7 %>
-            </td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>
-                <%= body.annexureNo8 %>
-            </td>
-            <td>
-                <%= body.annexureDetails8 %>
-            </td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>
-                <%= body.annexureNo9 %>
-            </td>
-            <td>
-                <%= body.annexureDetails9 %>
-            </td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>
-                <%= body.annexureNo10 %>
-            </td>
-            <td>
-                <%= body.annexureDetails10 %>
-            </td>
-        </tr>
-    </table>
-</div>
-<div>
-    <h2>Upload Details</h2>
-    <div>
-        <h3>Transaction Bill</h3>
-        <img src="<%= body.transBill %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Age Proof</h3>
-        <img src="<%= body.ageC %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Caste Certificate</h3>
-        <img src="<%= body.casteC %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>PWD Certificate</h3>
-        <img src="<%= body.pwdC %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>X Marksheet</h3>
-        <img src="<%= body.XMarksheet %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>X Certificate</h3>
-        <img src="<%= body.XCertificate %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>XII Marksheet</h3>
-        <img src="<%= body.XIIMarksheet %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>XII Certificate</h3>
-        <img src="<%= body.XIICertificate %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Diploma Marksheet</h3>
-        <img src="<%= body.diplomaMarksheet %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Diploma Certificate</h3>
-        <img src="<%= body.diplomaCertificate %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Graduation Marksheet</h3>
-        <img src="<%= body.gradMarksheet %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Graduation Certificate</h3>
-        <img src="<%= body.gradCertificate %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Post Graduation Marksheet</h3>
-        <img src="<%= body.postGradMarksheet %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Post Graduation Certificate</h3>
-        <img src="<%= body.postGradCertificate %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <h3>Ph.D Certificate</h3>
-        <img src="<%= body.phdCertificate %>" alt="" width="250px" height="300px">
-    </div>
-</div>
-<div>
-    <h2>Experience Certificates</h2>
-    <div>
-        <img src="<%= body.experience1 %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <img src="<%= body.experience2 %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <img src="<%= body.experience3 %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <img src="<%= body.experience4 %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-        <img src="<%= body.experience5 %>" alt="" width="250px" height="300px">
-    </div>
-</div>
-<div>
-    <h2>NOC Certificate</h2>
-    <div>
-        <img src="<%= body.NOC %>" alt="" width="250px" height="300px">
-    </div>
-</div>
-
-<div>
-    <h2>Declaration:</h2>
-    <p>I hereby declare that all the information given above is correct to the best of my knowledge and belief.
-        Also I have carefully checked that the position for which I am applying has been advertised by NIT SILCHAR. I
-        fully understand that if it is found that any information given in the application is incorrect/false or if I
-        do not satisfy the eligibility criteria at a later date, my candidature/appointment is liable to be cancelled.
-    </p>
-    <div>Date:
-        <%= body.declareDate %>
-    </div>
-    <div>Place:
-        <%= body.declarePlace %>
-    </div>
-    <div>
-        <img src="<%= body.signature %>" alt="" width="250px" height="300px">
-    </div>
-    <div>
-Signature Of The Applicant.        </div>
-</div>
+                    <center>
+                        <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                            Registration Portal
+                        </div>
+                    </center>
+                    <br><br><br>
+                 
+                            
+                    <div class=" box">
+                       <center> <h1>
+                            <b>User Detail</b>
+                        </h1></center>
+                        <br><br>
+                        <div class="transactionDetail border">
+                            <h2>Registration ID:
+                                <%= %>
+                            </h2>
+                            <br>
+                            <div style="float: right; margin-right: 100px;"> <img src="<%= body.photo %>" alt="" width="360px" height="400px"></div>
+                            <p>Advertisement No. and Date:
+                                <%= body.advNo %>
+                            </p>
+                            <p>Post Applied For:
+                                <%= body.postApplied %>
+                            </p>
+                            <p>Department:
+                                <%= body.department %>
+                            </p>
+                            <br><br>
+                            <h2>Transaction Details:</h2>
+                            <br>
+                            <p>Transaction ID:
+                                <%= body.transactionId %>
+                            </p>
+                            <p>Bank name:
+                                <%= body.bankName %>
+                            </p>
+                            <p>Branch name:
+                                <%= body.branchName %>
+                            </p>
+                            <p>IFSC Code:
+                                <%= body.ifsc %>
+                            </p>
+                            <p>Amount:
+                                <%= body.amount %>
+                            </p>
+                            <p>Date of Payment:
+                                <%= body.transactionDate %>
+                            </p>
+                        </div>
+                <br>
+                        <div class="personalDetail border">
+                            <h2>Personal Details:</h2>
+                            <br>
+                            <p>Name of Applicant:
+                                <%= body.name %>
+                            </p>
+                            <p>Mother's Name:
+                                <%= body.motherName %>
+                            </p>
+                            <p>Father's Name:
+                                <%= body.fatherName %>
+                            </p>
+                            <br><br>
+                            <h3>Address of Communication:</h3>
+                            <br>
+                            <p>H.No.:
+                                <%= body.houseNoResidential %>
+                            </p>
+                            <p>Street:
+                                <%= body.streetResidential %>
+                                <%= body.streetResidential1 %>
+                            </p>
+                            <p>Village/City:
+                                <%= body.cityResidential %>
+                            </p>
+                            <p>District:
+                                <%= body.districtResidential %>
+                            </p>
+                            <p>State:
+                                <%= body.stateResidential %>
+                            </p>
+                            <p>Country:
+                                <%= body.countryResidential %>
+                            </p>
+                            <p>Pin Code:
+                                <%= body.pincodeResidential %>
+                            </p>
+                            <br><br>
+                            <h3>Permanent Address:</h3>
+                            <br>
+                            <p>H.No.:
+                                <%= body.houseNoPermanent %>
+                            </p>
+                            <p>Street:
+                                <%= body.streetPermanent %>
+                                <%= body.streetPermanent1 %>
+                            </p>
+                            <p>Village/City:
+                                <%= body.cityPermanent %>
+                            </p>
+                            <p>District:
+                                <%= body.districtPermanent %>
+                            </p>
+                            <p>State:
+                                <%= body.statePermanent %>
+                            </p>
+                            <p>Country:
+                                <%= body.countryPermanent %>
+                            </p>
+                            <p>Pin Code:
+                                <%= body.pincodePermanent %>
+                            </p>
+                            <p>Email:
+                                <%= body.email %>
+                            </p>
+                            <p>Mobile No.:
+                                <%= body.mobileNo %>
+                            </p>
+                            <p>Gender:
+                                <%= body.gender %>
+                            </p>
+                            <p>Date of Birth:
+                                <%= body.DOB %>
+                            </p>
+                            <p>Age:
+                                <%= body.age %>
+                            </p>
+                            <p>Marital Status:
+                                <%= body.maritalStatus %>
+                            </p>
+                            <p>Category:
+                                <%= body.category %>
+                            </p>
+                            <p>PWD:
+                                <%= body.pwd %>
+                            </p>
+                            <p>%-age of Disability:
+                                <%= body.disability %>
+                            </p>
+                        </div>
+                <br>
+                        <div class="educationalQualification border" style="padding-right: 0px">
+                            <h2>Educational Qualification:</h2>
+                            <br>
+                            <table>
+                                <tr>
+                                    <th>Degree</th>
+                                    <th>Name of Board</th>
+                                    <th>Branch/Specialization</th>
+                                    <th>Year of completion</th>
+                                    <th>Div./Class</th>
+                                    <th>%-age of marks</th>
+                                    <th>CGPA/CPI</th>
+                                </tr>
+                                <tr>
+                                    <th>X</th>
+                                    <td>
+                                        <%= body.Xboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.Xbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.Xyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.Xdivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.Xpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.Xcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>XII</th>
+                                    <td>
+                                        <%= body.XIIboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.XIIbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.XIIyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.XIIdivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.XIIpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.XIIcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Diploma</th>
+                                    <td>
+                                        <%= body.dboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.dbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.dyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.ddivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.dpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.dcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Graduation</th>
+                                    <td>
+                                        <%= body.gboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.gbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.gyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.gdivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.gpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.gcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Post Graduation</th>
+                                    <td>
+                                        <%= body.pgboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.pgbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.pgyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.pgdivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.pgpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.pgcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Ph.D.</th>
+                                    <td>
+                                        <%= body.phdboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.phdbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.phdyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.phddivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.phdpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.phdcgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Others</th>
+                                    <td>
+                                        <%= body.oboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.obranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.oyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.odivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.opercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.ocgpa %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Title of Ph.D. Thesis</th>
+                                    <td>
+                                        <%= body.tophdboard %>
+                                    </td>
+                                    <td>
+                                        <%= body.tophdbranch %>
+                                    </td>
+                                    <td>
+                                        <%= body.tophdyear %>
+                                    </td>
+                                    <td>
+                                        <%= body.tophddivision %>
+                                    </td>
+                                    <td>
+                                        <%= body.tophdpercentage %>
+                                    </td>
+                                    <td>
+                                        <%= body.tophdcgpa %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <div class="border">
+                            <h2>Experience:</h2>
+                            <br>
+                            <table>
+                                <tr>
+                                    <th rowspan="2">S No.</th>
+                                    <th rowspan="2">Organisation</th>
+                                    <th rowspan="2">Designation</th>
+                                    <th colspan="2">Period(Date)</th>
+                                    <th colspan="2">Duration</th>
+                                    <th rowspan="2">Payscale</th>
+                                    <th rowspan="2">Reason for leaving</th>
+                                </tr>
+                                <tr>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Year</th>
+                                    <th>Month</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <%= body.exorganization1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale1 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason1 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <%= body.exorganization2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale2 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason2 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <%= body.exorganization3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale3 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason3 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <%= body.exorganization4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale4 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason4 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <%= body.exorganization5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale5 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason5 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>
+                                        <%= body.exorganization6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale6 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason6 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>
+                                        <%= body.exorganization7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale7 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason7 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>
+                                        <%= body.exorganization8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale8 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason8 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>
+                                        <%= body.exorganization9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale9 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason9 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>
+                                        <%= body.exorganization10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exdesignation10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exfrom10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.exto10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.duryear10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.durmonth10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.payScale10 %>
+                                    </td>
+                                    <td>
+                                        <%= body.reason10 %>
+                                    </td>
+                                </tr>
+                            </table>
+                
+                        </div>
+                        <br>
+                        <div class="border">
+                            <h3>Typing Speed:
+                                <%= body.speed %>
+                            </h3>
+                        </div>
+                        <br>
+                        <div class="border">
+                            <h2>Any Other Experience </h2>
+                            <br>
+                            <table>
+                                <tr>
+                                    <th>S No.</th>
+                                    <th>Details</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <%= body.oExperience1 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <%= body.oExperience1 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <%= body.oExperience1 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <%= body.oExperience1 %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <%= body.oExperience1 %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="border" style="margin-left:10px">
+                        <h2>List of Annexure Enclosed </h2>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>S No.</th>
+                                <th>Annexure No.</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <%= body.annexureNo1 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails1 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <%= body.annexureNo2 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails2 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <%= body.annexureNo3 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails3 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <%= body.annexureNo4 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails4 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <%= body.annexureNo5 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails5 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    <%= body.annexureNo6 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails6 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>
+                                    <%= body.annexureNo7 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails7 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>
+                                    <%= body.annexureNo8 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails8 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>
+                                    <%= body.annexureNo9 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails9 %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>
+                                    <%= body.annexureNo10 %>
+                                </td>
+                                <td>
+                                    <%= body.annexureDetails10 %>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="border" style="margin-left: 10px;">
+                        <h2>Upload Details</h2>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h5>Transaction Bill</h5>
+                                <br>
+                                <img src="<%= body.transBill %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Age Proof</h5>
+                                <br>
+                                <img src="<%= body.ageC %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Caste Certificate</h5>
+                                <br>
+                                <img src="<%= body.casteC %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>PWD Certificate</h5>
+                                <br>
+                                <img src="<%= body.pwdC %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h5>X Marksheet</h5>
+                                <br>
+                                <img src="<%= body.XMarksheet %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>X Certificate</h5>
+                                <br>
+                                <img src="<%= body.XCertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>XII Marksheet</h5>
+                                <br>
+                                <img src="<%= body.XIIMarksheet %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>XII Certificate</h5>
+                                <br>
+                                <img src="<%= body.XIICertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h5>Diploma Marksheet</h5>
+                                <br>
+                                <img src="<%= body.diplomaMarksheet %>" alt="" width="360px" height="400px">
+                            </div>
+                
+                            <div class="col-lg-3">
+                                <h5>Diploma Certificate</h5>
+                                <br>
+                                <img src="<%= body.diplomaCertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Graduation Marksheet</h5>
+                                <br>
+                                <img src="<%= body.gradMarksheet %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Graduation Certificate</h5>
+                                <br>
+                                <img src="<%= body.gradCertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h5>Post Graduation Marksheet</h5>
+                                <br>
+                                <img src="<%= body.postGradMarksheet %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Post Graduation Certificate</h5>
+                                <br>
+                                <img src="<%= body.postGradCertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <h5>Ph.D Certificate</h5>
+                                <br>
+                                <img src="<%= body.phdCertificate %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="border" style="margin-left: 10px;">
+                        <h2>Experience Certificates</h2>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="<%= body.experience1 %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="<%= body.experience2 %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="<%= body.experience3 %>" alt="" width="360px" height="400px">
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="<%= body.experience4 %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="<%= body.experience5 %>" alt="" width="360px" height="400px">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="border" style="margin-left: 10px">
+                        <h2>NOC Certificate</h2>
+                        <br>
+                        <div class="col-lg-3">
+                            <img src="<%= body.NOC %>" alt="" width="360px" height="400px">
+                        </div>
+                    </div>
+                <br>
+                    <div class="border" style="margin-left: 10px">
+                        <h2>Declaration:</h2>
+                        <p>I hereby declare that all the information given above is correct to the best of my knowledge and belief.
+                            Also I have carefully checked that the position for which I am applying has been advertised by NIT SILCHAR.
+                            I
+                            fully understand that if it is found that any information given in the application is incorrect/false or if
+                            I
+                            do not satisfy the eligibility criteria at a later date, my candidature/appointment is liable to be
+                            cancelled.
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-4"> <b> Date:</b>
+                                <%= body.declareDate %>
+                
+                                <div><b>Place:</b>
+                                    <%= body.declarePlace %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="<%= body.signature %>" alt="" width="250px" height="50px">
+                
+                                <div>
+                                    <b> Signature Of The Applicant.</b> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                <center>
+                    <div class="footer col-lg-12 col-md-12 col-sm-12">
+                    </div>
+                </center>
+                <!-- </div> -->
+                
+                </body>
+                
+                </html>

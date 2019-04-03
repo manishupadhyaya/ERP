@@ -1,6 +1,106 @@
-<h1 class="mt-4">ESTABLISHMENT Admin Section</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<h2>Send list to the director</h2>
+<head>
+    <style>
+        table{
+            border-collapse: separate;
+border-spacing: 100px 5px;
+        }
+        .subhead {
+            width: 100%;
+            margin-top: 10vh;
+            border-radius: 10px;
+            padding: 10px;
+            color: black;
+            font-size: 40px;
+            text-align: center;
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            background-color: lightsteelblue;
+        }
+        .btn
+        {
+            background-color: lightsteelblue;
+            color: black;
+            border-radius: 5px;
+            display: inline;
+            font-weight: bold;
+        }
+        .box {
+            padding-left: 10px;
+        }
+
+        .border {
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            background-color: lightsteelblue;
+            border-radius: 10px;
+        }
+        .footer{
+            width: 100%;
+            height: 100px;
+            background-color: lightsteelblue;
+            /* margin-left: 10px;
+            margin-right: 10px; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a :hover{
+            text-decoration: none;
+            
+            color: black;
+        }
+    </style>
+</head>
+<div class="jumbotron">
+    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+</div>
+
+<center>
+    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+        ESTABLISHMENT Admin Section
+    </div>
+</center>
+<br><br><br>
+<a class="btn" target="_blank" href="/admins/establishmentAdmin/notice">Update Notice Board</a>
+
+<div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Drop Post Database
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <form method="post" action="/admins/establishmentAdmin/drop">
+                    <li><button id="droplib" onclick="onClickHandler('droplib')" name="post" value='Librarian'>Librarian</button></li>
+            </form>
+            <form method="post" action="/admins/establishmentAdmin/drop">
+                    <li><button id="dropcoach" onclick="onClickHandler('dropcoach')" name="post" value='Coach'>Coach</button></li>
+            </form>             
+            <form method="post" action="/admins/establishmentAdmin/drop">
+                    <li><button id="dropreg" onclick="onClickHandler('dropreg')" name="post" value='Registerar'>Registerar</button></li>
+            </form>
+        </ul>
+      </div>
+
+<div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Post Applied
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <form method="post" action="/admins/establishmentAdmin/postApplied">
+                    <li><button id="lib" onclick="onClickHandler('lib')" name="post" value='Librarian'>Librarian</button></li>
+            </form>
+            <form method="post" action="/admins/establishmentAdmin/postApplied">
+                    <li><button id="coach" onclick="onClickHandler('coach')" name="post" value='Coach'>Coach</button></li>
+            </form>             
+            <form method="post" action="/admins/establishmentAdmin/postApplied">
+                    <li><button id="reg" onclick="onClickHandler('reg')" name="post" value='Registerar'>Registerar</button></li>
+            </form>
+        </ul>
+      </div>
+<h2>Forward list to the director</h2>
+<br>
 <form method="post" action="/admins/establishmentAdmin">
     <h3>List of eligible candidates</h3>
 <table>
@@ -9,18 +109,18 @@
         <th>Name</th>
         <th>Post Applied</th>
         <th>Gender</th>
-        <th></th>
+        <th>Remarks</th>
         <th></th>
     </tr>
 <% docs.forEach((doc) => { %>
-    <% if(doc.eligibility) { %>
+    <% if(doc.tick && doc.sentToDir) { %>
         <tr>
-        <td><%= doc.userId %></td>>
-        <td><%= doc.name %></td>>
-        <td><%= doc.postApplied %></td>>
-        <td><%= doc.gender %></td>>
+        <td><%= doc.userId %></td>
+        <td><%= doc.name %></td>
+        <td><%= doc.postApplied %></td>
+        <td><%= doc.gender %></td>
         <td><%= doc.Remarks %></td>
-        <td><a target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
+        <td><a class="btn" target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
     </tr>
     <% } %>
 <% }) %>
@@ -34,28 +134,35 @@
                 <th>Name</th>
                 <th>Post Applied</th>
                 <th>Gender</th>
+                <th>Remarks</th>
                 <th></th>
                 <th></th>
             </tr>
     <% docs.forEach((doc) => { %>
-    <% if(!doc.eligibility) { %>
+    <% if(!doc.tick && doc.sentToDir) { %>
         <tr>
-                <td><%= doc.userId %></td>>
-                <td><%= doc.name %></td>>
-                <td><%= doc.postApplied %></td>>
-                <td><%= doc.gender %></td>>
+                <td><%= doc.userId %></td>
+                <td><%= doc.name %></td>
+                <td><%= doc.postApplied %></td>
+                <td><%= doc.gender %></td>
                 <td><%= doc.Remarks %></td>
-                <td><a target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
+                <td><a class="btn" target="_blank" href="/admins/userdetail/<%= doc._id %>">view</a></td>
         </tr>
     <% } %>
 <% }) %>
 </table>
 
-<a href="/csv">Get data</a>
 
 
 <br><br>
-<p>Send list to the director sir</p>
-    <button type="submit">Send</button>
+<a class="btn" href="/csv">Get data</a><br>
+
+<span>Send list to the director sir</span>
+    <button class="btn" type="submit">Send</button>
 </form>
 <a href="/admins/logout" class="btn btn-secondary">Logout</a>
+ <script>
+            onClickHandler = (id) => {
+                document.getElementById(id).submit()
+            }
+        </script>

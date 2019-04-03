@@ -9,6 +9,7 @@ const {
   ensureAuthenticatedAdmin
 } = require('../config/auth'); // Welcome Page
 const PDFDocument = require('pdfkit');
+const uniqid = require('uniqid')
 
 // const Form1 = require('../models/Form1')
 const nodemailer = require('nodemailer')
@@ -17,10 +18,19 @@ const Form1 = require('../models/form1')
 const Form2 = require('../models/form2')
 const Form3 = require('../models/form3')
 const Expert = require('../models/expert')
-
+const Notice = require('../models/notice')
 const UserDetail = require('../models/userDetail')
+const User = require('../models/user');
 
-router.get('/', (req, res) => res.render('welcome')); // Dashboard 
+router.get('/', (req, res) => {
+  Notice.find({}, (err, docs) => {
+    if (err) return console.log(err)
+
+    res.render('welcome', {
+      docs
+    })
+  })
+}); // Dashboard 
 
 // router.get('/dashboard', ensureAuthenticated, (req, res) =>
 // {
@@ -110,7 +120,13 @@ router.get('/instructions', ensureAuthenticated, (req, res) => {
         }, (err, docs) => {
       
           if (docs.length === 0) {
-            res.render('form1')
+            User.findById(userId, (err, doc) => {
+              if (err) return console.log(err)
+              res.render('form1', {
+                doc
+              })
+            })
+            
           } else {
             res.redirect('/form1Edit')
           }
@@ -544,10 +560,10 @@ router.get('/form3Edit', ensureAuthenticated, (req, res) => {
   var userId = req._passport.session.user
   Form3.find({
     userId
-  }, (err, docs) => {
-    console.log("Form3 Edit DOcs are", docs)
+  }, (err, doc) => {
+    console.log("Form3 Edit DOcs are", doc)
     res.render('form3Edit', {
-      docs: docs
+      doc
     })
   })
 })
@@ -693,6 +709,16 @@ router.post('/formFinal', ensureAuthenticated, (req, res) => {
     body = Object.assign(body, bodyForm3)
   })
 
+  Form1.findOneAndRemove({userId}, (err, doc) => {
+    if(err) return console.log(err)
+  })
+  Form2.findOneAndRemove({userId}, (err, doc) => {
+    if(err) return console.log(err)
+  })
+  Form2.findOneAndRemove({userId}, (err, doc) => {
+    if(err) return console.log(err)
+  })
+
   setTimeout(() => {
     body.userId = userId
     UserDetail.find({userId}, (err, docs) => {
@@ -774,7 +800,7 @@ router.get('/admins/superAdmin/read', ensureAuthenticatedAdmin, (req, res, next)
 
 router.get('/admins/superAdmin', ensureAuthenticatedAdmin, (req, res) => {
 
-  if (approveEstablishmentAdmin) {
+  // if (approveEstablishmentAdmin) {
       UserDetail.find({}, (err, docs) => {
         if (err) return console.log(err)
   
@@ -783,9 +809,9 @@ router.get('/admins/superAdmin', ensureAuthenticatedAdmin, (req, res) => {
           user: req.user
         })
       })
-  } else {
-    res.send('yet to be approved by establishment section')
-  }
+  // } else {
+  //   res.send('yet to be approved by establishment section')
+  // }
 });
 
 // post super admin
@@ -797,40 +823,40 @@ router.post('/admins/superAdmin', ensureAuthenticatedAdmin, (req, res) => {
 
   console.log('req.body is:',req.body)
 
-  for (let id of Object.entries(req.body)) {
-    console.log('id:', id)
-    if (id[1] === 'false') {
-      UserDetail.findOneAndUpdate({
-        userId: id[0]
-      }, {
-        $set: {
-          eligibility: false
-        }
-      }, {
-        new: true
-      }, (err, doc) => {
-        if (err) console.log(err)
-      })
-    } else if (id[1] === 'true') {
-      UserDetail.findOneAndUpdate({
-        userId: id[0]
-      }, {
-        $set: {
-          eligibility: true
-        }
-      }, {
-        new: true
-      }, (err, doc) => {
-        if (err) console.log(err)
-      })
-    }
-  }
+  // for (let id of Object.entries(req.body)) {
+  //   console.log('id:', id)
+  //   if (id[1] === 'false') {
+  //     UserDetail.findOneAndUpdate({
+  //       userId: id[0]
+  //     }, {
+  //       $set: {
+  //         eligibility: false
+  //       }
+  //     }, {
+  //       new: true
+  //     }, (err, doc) => {
+  //       if (err) console.log(err)
+  //     })
+  //   } else if (id[1] === 'true') {
+  //     UserDetail.findOneAndUpdate({
+  //       userId: id[0]
+  //     }, {
+  //       $set: {
+  //         eligibility: true
+  //       }
+  //     }, {
+  //       new: true
+  //     }, (err, doc) => {
+  //       if (err) console.log(err)
+  //     })
+  //   }
+  // }
 
   UserDetail.find({}, (err, docs) => {
     if (err) console.log(err)
 
     docs.forEach((doc) => {
-      if (doc.eligibility === true) {
+      if (doc.tick === true) {
         UserDetail.findOneAndUpdate({
           userId: doc.userId
         }, {
@@ -846,9 +872,54 @@ router.post('/admins/superAdmin', ensureAuthenticatedAdmin, (req, res) => {
     })
   })
 
-  res.send('list sent to establishment admin')
+  res.redirect('/admins/superAdmin')
 });
 
+//post /admins/superAdmin/add/:id
+router.post('/admins/superAdmin/add/:id', (req, res) => {
+  var id = req.params.id
+  console.log('id is:',id)
+  UserDetail.findOneAndUpdate({
+    userId: id
+  }, {
+    $set: {
+      tick: true
+    }
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) console.log(err)
+
+    console.log("Updated docs are,", doc)
+    // console.log(doc)
+  })
+
+res.redirect('/admins/superAdmin')
+
+})
+
+//post /admins/superAdmin/remove/:id
+router.post('/admins/superAdmin/remove/:id', (req, res) => {
+  var id = req.params.id
+  console.log('id is:',id)
+  UserDetail.findOneAndUpdate({
+    userId: id
+  }, {
+    $set: {
+      tick: false
+    }
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) console.log(err)
+
+    console.log("Updated docs are,", doc)
+    // console.log(doc)
+  })
+
+  res.redirect('/admins/superAdmin')
+
+})
 
 // get expert section 
 router.get('/admins/superAdmin/panel', ensureAuthenticatedAdmin, (req, res) => {
@@ -880,6 +951,13 @@ router.get('/admins/superAdmin/addPanel', ensureAuthenticatedAdmin, (req, res) =
 // post add expert section 
 router.post('/admins/superAdmin/addPanel', ensureAuthenticatedAdmin, (req, res) => {
   var body = _.pick(req.body, [ "advNo", "postFor", "date", "place", "name1","designation1","affiliation1","contactNo1","email1","name2","designation2","affiliation2","contactNo2","email2","name3","designation3","affiliation3","contactNo3","email3","name4","designation4","affiliation4","contactNo4","email4","name5","designation5","affiliation5","contactNo5","email5","name6","designation6","affiliation6","contactNo6","email6"])
+  body.expert1 = uniqid()
+  body.expert2 = uniqid()
+  body.expert3 = uniqid()
+  body.expert4 = uniqid()
+  body.expert5 = uniqid()
+  body.expert6 = uniqid()
+  
   var expert = new Expert (
     body
   )
@@ -891,14 +969,347 @@ router.post('/admins/superAdmin/addPanel', ensureAuthenticatedAdmin, (req, res) 
   })
 });
 
-router.post('/admins/superAdmin/mail', ensureAuthenticatedAdmin, (req, res) => {
-  res.send('mail sent!')
+router.post('/admins/superAdmin/mail/:id/:expert', ensureAuthenticatedAdmin, (req, res) => {
+  const id = req.params.id
+  const expertId = req.params.expert
+
+  Expert.findById(id, (err, doc) => {
+
+    console.log("The Expert Doc is as follows: ",doc)
+
+    if (err) return console.log(err)
+
+    if(doc.expert1 === expertId) {
+
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email1}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email1} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        Expert.findOneAndUpdate({_id:id},{
+          $set:{
+            expert1sent: true
+          }
+        },
+          {new: true},
+          (err,doc)=>{
+
+            console.log('UPDATED DOCS: ',doc);
+            if(err)
+            {
+              console.log("The error is ",err);
+            }
+            else
+            {
+              res.redirect('/admins/superAdmin/showPanel');
+            }
+          }
+        )
+      }
+      });
+
+
+      //send mail to expert 1
+      //send the response
+      //set 'expert1sent' to true
+    }
+
+    if(doc.expert2 === expertId) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email2}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email2} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        doc.expert2sent = true
+        res.redirect('/admins/superAdmin/showPanel');
+      }
+      });
+      //send mail to expert 2
+      //send the response
+      //set 'expert2sent' to true
+    }
+    if(doc.expert3 === expertId) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email3}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email3} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        doc.expert3sent = true
+        res.redirect('/admins/superAdmin/showPanel');
+      }
+      });
+      //send mail to expert 2
+      //send the response
+      //set 'expert2sent' to true
+    }
+    if(doc.expert4 === expertId) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email4}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email4} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        doc.expert4sent = true
+        res.redirect('/admins/superAdmin/showPanel');
+      }
+      });
+      //send mail to expert 2
+      //send the response
+      //set 'expert2sent' to true
+    }
+    if(doc.expert5 === expertId) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email5}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email5} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        doc.expert5sent = true
+        res.redirect('/admins/superAdmin/showPanel');
+      }
+      });
+      //send mail to expert 2
+      //send the response
+      //set 'expert2sent' to true
+    }
+    if(doc.expert6 === expertId) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "tedxnits2019@gmail.com",
+          pass: "tedx@2019"
+        }
+      })
+      let HelperOptions = {
+        from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+        to: `${doc.email6}`,
+        subject: 'Contact form mail',
+        text: `Email:${doc.email6} Info:  ${doc}`
+      };
+  
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Server is ready to take our messages');
+        }
+      });
+  
+      transporter.sendMail(HelperOptions, (error, info) => {
+        if (error) {
+          res.redirect('/admins/superAdmin/showPanel');
+        } else {
+        console.log("The message was sent!");
+        console.log(info);
+        
+        
+
+
+      }
+      });
+      //send mail to expert 2
+      //send the response
+      //set 'expert2sent' to true
+    }
+    //....upto the 6th expert
+  })
+})
+
+
+//get edit panel
+router.get('/admins/superAdmin/edit/:id', ensureAuthenticatedAdmin ,(req, res) => {
+  const id = req.params.id
+
+  Expert.findById(id, (err, doc) => {
+    if(err) return console.log(err)
+
+    res.render('expert_edit', {
+      doc
+    })
+  })
+  
+})
+
+//post edit panel
+router.post('/admins/superAdmin/edit/:id', ensureAuthenticatedAdmin ,(req, res) => {
+  const id = req.params.id
+  var body = _.pick(req.body, [ "advNo", "postFor", "date", "place", "name1","designation1","affiliation1","contactNo1","email1","name2","designation2","affiliation2","contactNo2","email2","name3","designation3","affiliation3","contactNo3","email3","name4","designation4","affiliation4","contactNo4","email4","name5","designation5","affiliation5","contactNo5","email5","name6","designation6","affiliation6","contactNo6","email6"])
+
+  Expert.findByIdAndUpdate(id, {
+    $set: {
+      advNo: body.advNo,
+      postFor: body.postFor,
+      date: body.date,
+      place: body.place,
+      name1: body.name1,
+      designation1: body.designation1,
+      affiliation1: body.affiliation1,
+      contactNo1: body.contactNo1,
+      email1: body.email1,
+      name2: body.name2,
+      designation2: body.designation2,
+      affiliation2: body.affiliation2,
+      contactNo2: body.contactNo2,
+      email2: body.email2,
+      name3: body.name3,
+      designation3: body.designation3,
+      affiliation3: body.affiliation3,
+      contactNo3: body.contactNo3,
+      email3: body.email3,
+      name4: body.name4,
+      designation4: body.designation4,
+      affiliation4: body.affiliation4,
+      contactNo4: body.contactNo4,
+      email4: body.email4,
+      name5: body.name5,
+      designation5: body.designation5,
+      affiliation5: body.affiliation5,
+      contactNo5: body.contactNo5,
+      email5: body.email5,
+      name6: body.name6,
+      designation6: body.designation6,
+      affiliation6: body.affiliation6,
+      contactNo6: body.contactNo6,
+      email6: body.email6
+    }
+  }, (err) => {
+    if(err) {
+      res.redirect('/admins/superAdmin/edit/:id')
+    } else {
+      res.redirect('/admins/superAdmin/panel')
+    }
+  })
+})
+
+//get delete panel
+router.get('/admins/superAdmin/delete/:id', ensureAuthenticatedAdmin ,(req, res) => {
+  const id = req.params.id
+
+  Expert.findByIdAndRemove(id, (err) => {
+    if (err) return console.log(err)
+
+    res.redirect('/admins/superAdmin/panel')
+  })
+  
 })
 
 //get final list section 
 router.get('/admins/superAdmin/finalList', ensureAuthenticatedAdmin, (req, res) => {
 
-    UserDetail.find({sendMail: true}, (err, docs) => {
+    UserDetail.find({}, (err, docs) => {
       if (err) return console.log(err)
       
       res.render('final_list', {
@@ -930,7 +1341,7 @@ router.post('/admins/superAdmin/finalList', ensureAuthenticatedAdmin, (req, res)
     })
   }
 
-  res.send('sent!')
+  res.redirect('/admins/superAdmin')
 });
 
 
@@ -940,12 +1351,47 @@ router.post('/admins/superAdmin/finalList', ensureAuthenticatedAdmin, (req, res)
 // get establishment admin
 router.get('/admins/establishmentAdmin', ensureAuthenticatedAdmin, (req, res) => {
 
-  if (hodToEstablishmentAdmin) {
-    if (!waitForDirector) {
-      if (sendToEstablishmentAdmin) {
-        res.redirect('/admins/establishmentAdmin/sendMail')
-      } else {
-        UserDetail.find({}, (err, docs) => {
+  // if (hodToEstablishmentAdmin) {
+  //   if (!waitForDirector) {
+  //     if (sendToEstablishmentAdmin) {
+  //       res.redirect('/admins/establishmentAdmin/sendMail')
+  //     } else {
+  //       UserDetail.find({}, (err, docs) => {
+  //         if (err) return console.log(err)
+
+  //         res.render('establishment_admin1', {
+  //           docs: docs,
+  //           user: req.user
+  //         })
+  //       })
+  //     }
+  //   } else {
+  //     res.send('wait for the director to respond')
+  //   }
+  // } else {
+  //   res.send('List not sent by hod')
+  // }
+
+      // if (sendToEstablishmentAdmin) {
+      //   res.redirect('/admins/establishmentAdmin/sendMail')
+      // } else {
+      //   UserDetail.find({}, (err, docs) => {
+      //     if (err) return console.log(err)
+
+      //     res.render('establishment_admin1', {
+      //       docs: docs,
+      //       user: req.user
+      //     })
+      //   })
+      // }
+
+      res.render('phase')
+    
+  
+});
+
+router.get('/admins/establishmentAdmin2', (req, res) => {
+    UserDetail.find({}, (err, docs) => {
           if (err) return console.log(err)
 
           res.render('establishment_admin1', {
@@ -953,82 +1399,59 @@ router.get('/admins/establishmentAdmin', ensureAuthenticatedAdmin, (req, res) =>
             user: req.user
           })
         })
-      }
-    } else {
-      res.send('wait for the director to respond')
-    }
-  } else {
-    res.send('List not sent by hod')
-  }
-});
+})
 
 //post establishment admin
 router.post('/admins/establishmentAdmin', ensureAuthenticatedAdmin, (req, res) => {
-  res.send('sent to the director')
-  approveEstablishmentAdmin = true
-  waitForDirector = true
+  UserDetail.update({sentToDir: true},{
+    $set: {
+      sentToSuper: true
+    }
+  }, { multi: true},(err, docs) => {
+    if(err) return console.log(err)
+
+    console.log(docs)
+  })
+  res.redirect('/admins/establishmentAdmin')
+})
+
+//get establishmentadmin/notice
+router.get('/admins/establishmentAdmin/notice', ensureAuthenticatedAdmin, (req, res) => {
+  Notice.find({}, (err, docs) => {
+    if (err) return console.log(err)
+    res.render('notice_board', {
+      docs
+    })
+  })
+  })
+
+  //post establishmentadmin/notice
+  router.post('/admins/establishmentAdmin/notice', ensureAuthenticatedAdmin, (req, res) => {
+   var body = _.pick(req.body, ["notice"])
+   var notice = new Notice(
+     body
+   )
+   notice.save(err => {
+     if(err) return console.log(err)
+
+     res.redirect('/admins/establishmentAdmin/notice')
+   })
+    })
+
+  //get delete notice
+router.get('/admins/establishmentAdmin/notice/:id', ensureAuthenticatedAdmin ,(req, res) => {
+  const id = req.params.id
+
+  Notice.findByIdAndRemove(id, (err) => {
+    if (err) return console.log(err)
+
+    res.redirect('/admins/establishmentAdmin/notice')
+  })
+  
 })
 
 //get sendMail
 router.get('/admins/establishmentAdmin/sendMail',ensureAuthenticatedAdmin, (req, res) => {
-
-  UserDetail.find({
-    sendMail: true
-  }, (err, docs) => {
-    if (err) return console.log(err)
-    res.render('establishment_admin', {
-      docs: docs,
-      user: req.user
-    })
-  })
-})
-
-router.post('/admins/establishmentAdmin/sendMail',ensureAuthenticatedAdmin, (req, res) => {
-  UserDetail.find({
-    sendMail: true
-  }, (err, docs) => {
-    if (err) return console.log(err)
-
-    console.log('The User is :', JSON.stringify(req.user, undefined, 3), "Yo YO")
-
-    console.log("The docs are as follows: ", JSON.stringify(docs, undefined, 2))
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "tedxnits2019@gmail.com",
-        pass: "tedx@2019"
-      }
-    })
-    let HelperOptions = {
-      from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
-      to: 'coolmanishupadhyaya@gmail.com',
-      subject: 'Contact form mail',
-      text: `Email:'coolmanishupadhyaya@gmail.com' Info:  ${docs}`
-    };
-
-    transporter.verify(function (error, success) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Server is ready to take our messages');
-      }
-    });
-
-    transporter.sendMail(HelperOptions, (error, info) => {
-      if (error) {
-        console.log(error)
-      }
-      console.log("The message was sent!");
-      console.log(info);
-      res.redirect('/admins/establishmentAdmin/sendMail');
-    });
-
-
-  })
-})
-
-//get sendMail
-router.get('/admins/establishmentAdmin/mail',ensureAuthenticatedAdmin, (req, res) => {
 
   // UserDetail.find({
   //   sendMail: true
@@ -1039,19 +1462,118 @@ router.get('/admins/establishmentAdmin/mail',ensureAuthenticatedAdmin, (req, res
   //     user: req.user
   //   })
   // })
-  UserDetail.find({finallySelected:true}, (err, docs) => {
+  UserDetail.find({}, (err, docs) => {
+    if (err) return console.log(err)
+    res.render('establishment_admin', {
+      docs: docs,
+      user: req.user
+    })
+  })
+})
+
+router.post('/admins/establishmentAdmin/send/:id', ensureAuthenticatedAdmin, (req, res) => {
+  const id = req.params.id
+  UserDetail.find({
+    userId: id
+  }, (err, docs) => {
+    
+    if (err) return console.log(err)
+
+        console.log('The User is :', JSON.stringify(req.user, undefined, 3), "Yo YO")
+    
+        console.log("The docs are as follows: ", JSON.stringify(docs, undefined, 2))
+        let transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: "tedxnits2019@gmail.com",
+            pass: "tedx@2019"
+          }
+        })
+        let HelperOptions = {
+          from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+          to: 'coolmanishupadhyaya@gmail.com',
+          subject: 'Contact form mail',
+          text: `Email:'coolmanishupadhyaya@gmail.com' Info:  ${docs}`
+        };
+    
+        transporter.verify(function (error, success) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Server is ready to take our messages');
+          }
+        });
+    
+        transporter.sendMail(HelperOptions, (error, info) => {
+          if (error) {
+            res.redirect('/admins/establishmentAdmin/sendMail');
+          } else {
+          console.log("The message was sent!");
+          console.log(info);
+          docs[0].sent = true
+          res.redirect('/admins/establishmentAdmin/sendMail');
+        }
+        });
+  })
+})
+
+router.post('/admins/establishmentAdmin/mail/:id', ensureAuthenticatedAdmin, (req, res) => {
+  const id = req.params.id
+  UserDetail.find({
+    userId: id
+  }, (err, docs) => {
+    
+    if (err) return console.log(err)
+
+        console.log('The User is :', JSON.stringify(req.user, undefined, 3), "Yo YO")
+    
+        console.log("The docs are as follows: ", JSON.stringify(docs, undefined, 2))
+        let transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: "tedxnits2019@gmail.com",
+            pass: "tedx@2019"
+          }
+        })
+        let HelperOptions = {
+          from: `"Establishment Admin" <'tedxnits2019@gmail.com'>`,
+          to: 'coolmanishupadhyaya@gmail.com',
+          subject: 'Contact form mail',
+          text: `Email:'coolmanishupadhyaya@gmail.com' Info:  ${docs}`
+        };
+    
+        transporter.verify(function (error, success) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Server is ready to take our messages');
+          }
+        });
+    
+        transporter.sendMail(HelperOptions, (error, info) => {
+          if (error) {
+            console.log('mail error is:', error)
+            res.redirect('/admins/establishmentAdmin/mail');
+          } else {
+          console.log("The message was sent!");
+          console.log(info);
+          docs[0].mail = true
+          res.redirect('/admins/establishmentAdmin/mail');
+        }
+        });
+  })
+})
+
+//get sendMail
+router.get('/admins/establishmentAdmin/mail',ensureAuthenticatedAdmin, (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
     if (err) return console.log(err)
 
     res.render('mail_final', {
       docs
     })
   })
-})
-
-//get sendMail
-router.post('/admins/establishmentAdmin/mail',ensureAuthenticatedAdmin, (req, res) => {
-
-  //see for finallySelected: true
 })
 
 
@@ -1069,73 +1591,259 @@ router.get('/admins/hodAdmin', ensureAuthenticatedAdmin, (req, res) => {
   })
 });
 
-// get department admin
-
-
 // post department admin
 router.post('/admins/hodAdmin', ensureAuthenticatedAdmin, (req, res) => {
-  console.log('req body is: ', req.body)
+  // console.log('req body is: ', req.body)
 
-  hodToEstablishmentAdmin = true
+  // hodToEstablishmentAdmin = true
 
-  res.send('ok')
-  for (let id of Object.keys(req.body)) {
-    console.log('id:',id);
-    console.log('req.body',req.body)
-    UserDetail.findOneAndUpdate({
-      userId: id
-    }, {
-      $set: {
-        eligibility: true
-      }
-    }, {
-      new: true
-    }, (err, doc) => {
-      if (err) console.log(err)
+  // res.send('ok')
+  // for (let id of Object.keys(req.body)) {
+  //   console.log('id:',id);
+  //   console.log('req.body',req.body)
+  //   UserDetail.findOneAndUpdate({
+  //     userId: id
+  //   }, {
+  //     $set: {
+  //       eligibility: true
+  //     }
+  //   }, {
+  //     new: true
+  //   }, (err, doc) => {
+  //     if (err) console.log(err)
 
-      console.log("Updated docs are,", doc)
+  //     console.log("Updated docs are,", doc)
       // console.log(doc)
-    })
-  }
-
-
-  for (let id of Object.entries(req.body)) {
-    console.log('id:',id);
-    console.log('req.body',req.body)
-    UserDetail.findOneAndUpdate({
-      _id: id[0]
-    }, {
-      $set: {
-        Remarks: id[1]
-      }
-    }, {
-      new: true
-    }, (err, doc) => {
-      if (err) console.log(err)
-
-      console.log("Updated docs are,", doc)
-      // console.log(doc)
-    })
-  }
-
-  
-  // UserDetail.find({}, (err, docs) => {
-  //   docs.forEach(doc => {
-  //     UserDetail.findByIdAndUpdate( doc._id,
-  //       {
-  //         $set: {
-  //           Remarks: 'try1'
-  //         }}, {
-  //           new: true
-  //       }, (err, doc1) => {
-  //         if(err) console.log(err)
-
-  //         console.log("Remarks docs are,", doc1)
-  //       })
   //   })
-  // })
+  // }
 
+
+  // for (let id of Object.entries(req.body)) {
+  //   console.log('id:',id);
+  //   console.log('req.body',req.body)
+  //   UserDetail.findOneAndUpdate({
+  //     _id: id[0]
+  //   }, {
+  //     $set: {
+  //       Remarks: id[1]
+  //     }
+  //   }, {
+  //     new: true
+  //   }, (err, doc) => {
+  //     if (err) console.log(err)
+
+  //     console.log("Updated docs are,", doc)
+  //     // console.log(doc)
+  //   })
+  // }
+  UserDetail.update({}, {
+    $set: {
+      sentToDir: true
+    }
+  }, {multi : true}, (err, docs) => {
+      if(err) return console.log(err)
+
+      console.log('docs are:',docs)
+    }
+  )
+  res.redirect('/admins/hodAdmin')
 });
+
+//post /admins/hodAdmin/add/:id
+router.post('/admins/hodAdmin/add/:id', (req, res) => {
+  var id = req.params.id
+  console.log('id is:',id)
+  UserDetail.findOneAndUpdate({
+    userId: id
+  }, {
+    $set: {
+      tick: true
+    }
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) console.log(err)
+
+    console.log("Updated docs are,", doc)
+    // console.log(doc)
+  })
+
+res.redirect('/admins/hodAdmin')
+
+})
+
+//post /admins/hodAdmin/remove/:id
+router.post('/admins/hodAdmin/remove/:id', (req, res) => {
+  var id = req.params.id
+  console.log('id is:',id)
+  UserDetail.findOneAndUpdate({
+    userId: id
+  }, {
+    $set: {
+      tick: false
+    }
+  }, {
+    new: true
+  }, (err, doc) => {
+    if (err) console.log(err)
+
+    console.log("Updated docs are,", doc)
+    // console.log(doc)
+  })
+
+  res.redirect('/admins/hodAdmin')
+
+})
+
+//get /admins/hodAdmin/postApplied
+router.get('/admins/hodAdmin/postApplied', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('hod_admin', {
+      docs
+    })
+  })
+})
+
+//post /admins/hodAdmin/postApplied
+router.post('/admins/hodAdmin/postApplied', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('hod_admin', {
+      docs
+    })
+  })
+})
+
+//get /admins/establishmentAdmin/postApplied
+router.get('/admins/establishmentAdmin/postApplied', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('establishment_admin1', {
+      docs
+    })
+  })
+})
+
+//post /admins/establishmentAdmin/postApplied
+router.post('/admins/establishmentAdmin/postApplied', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('establishment_admin1', {
+      docs
+    })
+  })
+})
+
+//get /admins/superAdmin/postApplied
+router.get('/admins/superAdmin/postApplied', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('super_admin', {
+      docs
+    })
+  })
+})
+
+//post /admins/superAdmin/postApplied
+router.post('/admins/superAdmin/postApplied', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('super_admin', {
+      docs
+    })
+  })
+})
+
+//get /admins/superAdmin/postApplied
+router.get('/admins/superAdmin/finalList/postApplied', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('final_list', {
+      docs
+    })
+  })
+})
+
+//post /admins/superAdmin/postApplied
+router.post('/admins/superAdmin/finalList/postApplied', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('final_list', {
+      docs
+    })
+  })
+})
+
+//get /admins/establishmentAdmin1/postApplied
+router.get('/admins/establishmentAdmin1/postApplied', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('establishment_admin', {
+      docs
+    })
+  })
+})
+
+//post /admins/establishmentAdmin1/postApplied
+router.post('/admins/establishmentAdmin1/postApplied', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('establishment_admin', {
+      docs
+    })
+  })
+})
+
+//get /admins/establishmentAdmin/mail/postApplied
+router.get('/admins/establishmentAdmin/mail1', (req, res) => {
+
+  UserDetail.find({}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('mail_final', {
+      docs
+    })
+  })
+})
+
+//post /admins/establishmentAdmin/mail/postApplied
+router.post('/admins/establishmentAdmin/mail1', (req, res) => {
+  var postApplied = _.pick(req.body, ["post"]).post
+
+  UserDetail.find({postApplied}, (err, docs) => {
+    if(err) return console.log(err)
+
+    res.render('mail_final', {
+      docs
+    })
+  })
+})
 
 //user detail page
 router.get('/admins/userdetail/:id', ensureAuthenticatedAdmin, (req, res) => {
@@ -1165,6 +1873,40 @@ router.get('/admins/userdetail/:id', ensureAuthenticatedAdmin, (req, res) => {
         
         res.send(new Buffer(csv))
     })
+  })
+
+  //drop database
+  router.post('/admins/establishmentAdmin/drop', (req, res) => {
+    var postApplied = _.pick(req.body, ["post"]).post
+
+      UserDetail.find({postApplied}, (err, docs) =>{
+      if(err) return console.log(err)
+
+      console.log('docs are:', docs)
+
+        docs.forEach((doc) => {
+          console.log(doc)
+          User.findOneAndRemove({_id: doc.userId}, (err, doc) => {
+            if(err) return console.log(err)
+            console.log('doc os:', doc)
+          })
+        })      
+    })
+
+    setTimeout(() => {
+      UserDetail.remove({postApplied},(err) => {
+        if(err) return console.log(err)
+      })
+    },100)
+
+    // setTimeout(() => {
+    //   Expert.remove({postFor : postApplied},(err) => {
+    //     if(err) return console.log(err)
+    //   })
+    // },100)
+  
+
+    res.send('dropped')
   })
 
 module.exports = router

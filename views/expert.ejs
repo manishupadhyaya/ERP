@@ -1,8 +1,74 @@
-<h1>Expert Panel</h1>
+<head>
+    <style>
+        table{
+            border-collapse: separate;
+border-spacing: 100px 5px;
+        }
+        .subhead {
+            width: 100%;
+            margin-top: 10vh;
+            border-radius: 10px;
+            padding: 10px;
+            color: black;
+            font-size: 40px;
+            text-align: center;
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            background-color: lightsteelblue;
+        }
+        .btn
+        {
+            background-color: lightsteelblue;
+            color: black;
+            border-radius: 5px;
+            display: inline;
+            font-weight: bold;
+        }
+        .box {
+            padding-left: 10px;
+        }
 
-<button><a target="_blank" href="/admins/superAdmin/addPanel">Add panel</a></button>
+        .border {
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            background-color: lightsteelblue;
+            border-radius: 10px;
+        }
+        .footer{
+            width: 100%;
+            height: 100px;
+            background-color: lightsteelblue;
+            /* margin-left: 10px;
+            margin-right: 10px; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a :hover{
+            text-decoration: none;
+            
+            color: black;
+        }
+    </style>
+</head>
+<div class="jumbotron">
+    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+</div>
 
-<form method="post" action="/admins/superAdmin/mail">
+<center>
+    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+        EXPERT PANEL
+    </div>
+</center>
+<br><br><br>
+<a class="btn" target="_blank" href="/admins/superAdmin/addPanel">Add panel</a>
+
+<!-- <form method="post" action="/admins/superAdmin/mail"> -->
 <% docs.forEach(doc => { %>
     <div>
         <div>
@@ -24,61 +90,111 @@
                 <th>Affiliation</th>
                 <th>Contact Number</th>
                 <th>Email</th>
+                <th></th>
             </tr>
             <tr>
+                <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert1 %>" id="<%= doc.expert1 %>">
                 <td>1</td>
                 <td><%= doc.name1 %></td>
                 <td><%= doc.designation1 %></td>
                 <td><%= doc.affiliation1 %></td>
                 <td><%= doc.contactNo1 %></td>
                 <td><%= doc.email1 %></td>
+                <% if (!doc.expert1sent) { %>
+                <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert1 %>')">send</button></td>
+                <% } else { %>
+                    <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert1 %>')">send</button></td>
+                    <% } %>
+            </form>
             </tr>
             <tr>
+                <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert2 %>" id="<%= doc.expert2 %>">
                 <td>2</td>
                 <td><%= doc.name2 %></td>
                 <td><%= doc.designation2 %></td>
                 <td><%= doc.affiliation2 %></td>
                 <td><%= doc.contactNo2 %></td>
                 <td><%= doc.email2 %></td>
+                <% if (!doc.expert2sent) { %>
+                    <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert2 %>')">send</button></td>
+                    <% } else { %>
+                        <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert2 %>')">send</button></td>
+                        <% } %>            </form>
              </tr>
              <tr>
+                <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert3 %>" id="<%= doc.expert3 %>">
                  <td>3</td>
                  <td><%= doc.name3 %></td>
                 <td><%= doc.designation3 %></td>
                 <td><%= doc.affiliation3 %></td>
                 <td><%= doc.contactNo3 %></td>
                 <td><%= doc.email3 %></td>
+                <% if (!doc.expert3sent) { %>
+                    <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert3 %>')">send</button></td>
+                    <% } else { %>
+                        <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert3 %>')">send</button></td>
+                        <% } %>    
+                            </form>
              </tr>
              <tr>
+                    <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert4 %>" id="<%= doc.expert4 %>">
                 <td>4</td>
                 <td><%= doc.name4 %></td>
                 <td><%= doc.designation4 %></td>
                 <td><%= doc.affiliation4 %></td>
                 <td><%= doc.contactNo4 %></td>
                 <td><%= doc.email4 %></td>
+                <% if (!doc.expert4sent) { %>
+                    <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert4 %>')">send</button></td>
+                    <% } else { %>
+                        <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert4 %>')">send</button></td>
+                        <% } %>       
+                         </form>
              </tr>
              <tr>
+                    <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert5 %>" id="<%= doc.expert5 %>">
                  <td>5</td>
                  <td><%= doc.name5 %></td>
                  <td><%= doc.designation5 %></td>
                  <td><%= doc.affiliation5 %></td>
                  <td><%= doc.contactNo5 %></td>
                  <td><%= doc.email5 %></td>
+                 <% if (!doc.expert5sent) { %>
+                    <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert5 %>')">send</button></td>
+                    <% } else { %>
+                        <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert5 %>')">send</button></td>
+                        <% } %>          
+                      </form>
              </tr>
              <tr>
+                    <form method="post" action="/admins/superAdmin/mail/<%= doc._id %>/<%= doc.expert6 %>" id="<%= doc.expert6 %>">
                  <td>6</td>
                  <td><%= doc.name6 %></td>
                 <td><%= doc.designation6 %></td>
                 <td><%= doc.affiliation6 %></td>
                 <td><%= doc.contactNo6 %></td>
                 <td><%= doc.email6 %></td>
+                <% if (!doc.expert6sent) { %>
+                    <td><button class="btn" type="submit" onclick="onClickHandler('<%= doc.expert6 %>')">send</button></td>
+                    <% } else { %>
+                        <td><button class="btn" disabled type="submit" onclick="onClickHandler('<%= doc.expert6 %>')">send</button></td>
+                        <% } %>           
+                     </form>
              </tr>
         </table>
- </div>
+        <a class="btn" href="/admins/superAdmin/edit/<%= doc._id %>">Edit panel</a>
+        <a class="btn" href="/admins/superAdmin/delete/<%= doc._id %>">Delete panel</a>
+    </div>
 
 <% }) %>
 
-<button type="submit">mail</button>
+<script>
+        onClickHandler = (id) => {
+            document.getElementById(id).submit()
+        }
+    </script>
 
-</form>
-    
+<!-- <button type="submit">mail</button> -->
+
+<!-- </form> -->
+<a class="btn" href="/admins/logout" class="btn btn-secondary">Logout</a>

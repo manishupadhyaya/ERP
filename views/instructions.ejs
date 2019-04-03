@@ -2,37 +2,91 @@
 
 <head>
     <title>Student Registration Form</title>
-    <link rel="stylesheet" href="/css/styles/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles/main.css">
-    <link rel="stylesheet" href="/css/styles/form.css">
-
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/styles/main.css">
+    <link rel="stylesheet" href="/css/styles/form.css"> -->
+<style>
+    body{
+        text-align: left;
+    }
+ table{
+                            border-collapse: separate;
+                        border-spacing: 100px 5px;
+                        }
+                        .subhead {
+                            width: 100%;
+                            margin-top: 10vh;
+                            border-radius: 10px;
+                            padding: 10px;
+                            color: black;
+                            font-size: 40px;
+                            text-align: center;
+                            background-color: lightsteelblue;
+                        }
+                        .jumbotron{
+                            background-color: lightsteelblue;
+                        }
+                        .btn
+                        {
+                            background-color: lightsteelblue;
+                            color: black;
+                            border-radius: 5px;
+                            display: inline;
+                            font-weight: bold;
+                        }
+                        .box {
+                            padding-left: 10px;
+                        }
+                
+                        .border {
+                            padding-top: 20px;
+                            padding-left: 30px;
+                            padding-bottom: 20px;
+                            background-color: lightsteelblue;
+                            border-radius: 10px;
+                        }
+                        .footer{
+                            width: 100%;
+                            height: 100px;
+                            background-color: lightsteelblue;
+                            /* margin-left: 10px;
+                            margin-right: 10px; */
+                            border-top-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                        }
+                        a{
+                            text-decoration: none;
+                            color: black;
+                        }
+                        a :hover{
+                            text-decoration: none;
+                            color: black;
+                        }
+                        </style>
 </head>
 
 <body>
-    <div class="jumbotron">
-        <div class="logo col-lg-3 col-md-3 col-sm-3">
-            <img src="nit_logo.png" alt="NITS" height="110vh" width="110vh">
-        </div>
-        <div class="head col-lg-12 col-md-12 col-sm-12">NATIONAL INSTITUTE OF TECHNOLOGY, SILCHAR
-            <br>SILCHAR-788010(ASSAM)
-        </div>
-    </div>
-    <div>
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="jumbotron" >
+                <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+            </div>
+
             <center>
-                <div class="subhead col-sm-12 col-md-12 col-lg-7">
-                    Registraion Portal
-                    <h4>(General Instructions)</h4>
+                <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                    Registration Portal
                 </div>
             </center>
-            <center>
+            <br><br><br>
+    <div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+         
                 <div id="box" class="col-sm-12 col-md-12">
                     <center>
                         <h4 style="color: maroon;"><b>INSTRUCTIONS FOR FILLING ONLINE APPLICATION FORM AND
                                 SENDING THE REGISTRATION PAGE BY POST</b></h4>
                     </center><br><br>
-                    <h4> <span class="essential">*</span> Better view on Desktop. <span class="essential">*</span></h4>
+                  <center>  <h4> <span class="essential">*</span> Better view on Desktop. <span class="essential">*</span></h4></center>
                     <br><br>
+                    <div class="col-lg-10 col-md-10 col-sm-12" style="padding-left: 10vw">
                     1. Candidate shall log on to <b>www.xyz.com</b> and click proceeds for Admission and then
                     registration. <br><br>
                     2. Check on the checkbox and click on to NEXT to register or enter Login & Password if you are already registered. <br><br>
@@ -84,7 +138,8 @@
                     photograph are liable to be rejected. Candidates shall keep 10 identical photographs in reserve for
                     use at the time of Entrance Examination / Counselling / Document Verification / Admission. <br><br>
                 </div>
-            </center>
+                </div>
+          
             <center>
                 <span style="color: red; font-size: 15px;">
                     <input id="myCheck" onclick="myFunction()" type="checkbox"> I have read the instructions thoroughly and want to
@@ -95,17 +150,22 @@
                 <br><br>
                 <span id="button">
                     <a href="/form1">
-                        <button class="btn btn-block" id='myBtn' disabled type="submit" style="font-size: 20px; color: white; padding: 5px; width: 100px; text-align: center;">NEXT
-                        </button>
+                        <button class="btn" id="myBtn" type="submit">NEXT</button>
                     </a>
+        </a>
                 </span>
             </center>
 
-            <center>
-                <div class="footer"></div>
-            </center>
+            <br><br><br>
+            
+
+            <a href="/users/logout"><button class="btn">LOGOUT</button></a>
+
+                <div class="footer" style="padding: none;"></div>
+          
         </div>
     </div>
+
 </body>
 <script>
     var check = false

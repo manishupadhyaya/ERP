@@ -76,3 +76,18 @@ a:hover {
     text-decoration: none;
     color: white;
 }
+
+#lifCheck {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 53.85%;
+    left: 40%;
+}
+
+#lifCheck:hover {
+    cursor: pointer;
+    background-color: bisque;
+}

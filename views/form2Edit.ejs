@@ -5,21 +5,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="/css/styles/form.css">
+    <!-- <link rel="stylesheet" href="/css/styles/form.css">
+     -->
+     <style>
+            body{
+                text-align: left;
+            }
+         /* table{
+                                    border-collapse: separate;
+                                border-spacing: 100px 5px;
+                                } */
+                                .subhead {
+                                    width: 100%;
+                                    margin-top: 10vh;
+                                    border-radius: 10px;
+                                    padding: 10px;
+                                    color: black;
+                                    font-size: 40px;
+                                    text-align: center;
+                                    background-color: lightsteelblue;
+                                }
+                                .jumbotron{
+                                    background-color: lightsteelblue;
+                                }
+                                .btn
+                                {
+                                    background-color: lightsteelblue;
+                                    color: black;
+                                    border-radius: 5px;
+                                    display: inline;
+                                    font-weight: bold;
+                                }
+                                .box {
+                                    padding-left: 10px;
+                                }
+                        
+                                .border {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    padding-bottom: 20px;
+                                    background-color: lightsteelblue;
+                                    border-radius: 10px;
+                                }
+                                .footer{
+                                    width: 100%;
+                                    height: 100px;
+                                    background-color: lightsteelblue;
+                                    /* margin-left: 10px;
+                                    margin-right: 10px; */
+                                    border-top-left-radius: 10px;
+                                    border-top-right-radius: 10px;
+                                }
+                                a{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+                                a :hover{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+            </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <img src="nitbanner.png" alt="NITS" height="150vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
-        </div>
-        <center>
-            <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
-                Registration Portal
-            </div>
-        </center>
-        <br><br><br>
-        <div class="container col-lg-12 col-md-12 col-sm-12">
+            <div class="jumbotron" >
+                    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+                </div>
+    
+                <center>
+                    <div class="subhead col-lg-10 col-md-12 col-sm-12" id="headline">
+                        Registration Portal
+                    </div>
+                </center>
+                <br><br><br>
+        <div class="container col-lg-10 col-md-10 col-sm-10">
             <legend>6. EDUCATIONAL QUALIFICATION</legend>
             <form class="form-horizontal" action="/form2Edit" method="POST">
                 <% docs.forEach((doc)=>{ %>
@@ -177,16 +236,16 @@
                                     <td style="text-align: center;">Month</td>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>     
                                 <tr>
                                     <td>1.</td>
                                     <td><input type="text" class="form-control" value="<%= doc.exorganization1 %>" name="exorganization1" /></td>
                                     <td><input type="text" class="form-control" value="<%= doc.exdesignation1 %>" name="exdesignation1" /></td>
                                     <td><input type="date" style="width: 200px;" id="from1" value="<%= doc.exfrom1 %>" class="form-control"
                                             name="exfrom1" /></td>
-                                    <td><input type="date" style="width: 200px;" id="from2" value="<%= doc.exto1 %>" class="form-control"
+                                    <td><input type="date" style="width: 200px;" id="to1" onchange="predictYear()" value="<%= doc.exto1 %>" class="form-control"
                                             name="exto1" /></td>
-                                    <td><input type="text" class="form-control" id="year1" onchange="predictYear()" value="<%= doc.duryear1 %>" name="duryear1" /></td>
+                                    <td><input type="text" class="form-control" id="year1" value="<%= doc.duryear1 %>" name="duryear1" /></td>
                                     <td><input type="text" class="form-control" id="month1" onchange="predictMonth()" value="<%= doc.durmonth1 %>" name="durmonth1" /></td>
                                     <td><input type="text" class="form-control" value="<%= doc.payScale1 %>" name="payScale1" /></td>
                                     <td><input type="text" class="form-control" value="<%= doc.reason1 %>" name="reason1" /></td>
@@ -314,6 +373,7 @@
                     </div>
                     <br><br>
                 </div>
+            
                 <div class="container col-lg-12 col-md-12 col-sm-12">
                     <div class="form-row">
                         <div class="form-group col-lg-10 col-md-10">
@@ -538,41 +598,56 @@
  <br>
  </fieldset> -->
                     <br><br><br>
-                    <div class="container col-lg-2 col-md-4 col-sm-4">
-                        <button type="submit" class="btn"><a href="/form1Edit">Prev</a></button>
-                        <button type="submit" class="btn">Next</button>
+                    <center>
+                    <div class="container col-lg-4 col-md-4 col-sm-4">
+                        <button type="submit" class="btn"><a href="/form1Edit">PREV</a></button>
+                        <button type="submit" class="btn">NEXT</button>
+
                     </div>
+                </center>
                 </div>
                 <% }) %>
             </form>
-            <a href="/users/logout" class="btn btn-secondary">Logout</a>
-
         </div>
+        <br><br><br>
+          
+
+        <a href="/users/logout"><button class="btn">LOGOUT</button></a>
+       
         <center>
             <div class="footer col-lg-12 col-md-12 col-sm-12">
             </div>
         </center>
+
 <script>
-    var from = document.getElementById('form1').value
-    var to = document.getElementById('to1').value
+    // var from = document.getElementById('form1').value
+    // var to = document.getElementById('to1').value
 
-    var  getYear = (from, to) => {
-                var today = new Date(to);
-                var birthDate = new Date(from);
-                var age = today.getFullYear() - birthDate.getFullYear();
-                var m = today.getMonth() - birthDate.getMonth();
-                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                    age--;
-                }
-                return age;
-            }
-    var predictYear = () =>  {
-        document.getElementById('year1').value = getYear(from, to)
-    }
+    // var  getYear = (from, to) => {
+    //             var today = new Date(to);
+    //             var birthDate = new Date(from);
+    //             var age = today.getFullYear() - birthDate.getFullYear();
+    //             var m = today.getMonth() - birthDate.getMonth();
+    //             if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    //                 age--;
+    //             }
+    //             return age;
+    //         }
 
-    var predictMonth = () => {
+//     var date1 = new Date("7/13/2010");
+// var date2 = new Date("12/15/2010");
+// var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+// var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+//     document.getElementById('year1').value = diffDays
+//     var predictYear = () =>  {
+//         alert('diffDays')
+//         document.getElementById('year1').value = diffDays
+//     }
 
-    }
+    // var predictMonth = () => {
+
+    // }
+   
 </script>
 </body>
 
